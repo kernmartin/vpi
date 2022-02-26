@@ -1,0 +1,81 @@
+*, div{
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html, body{
+  background-image: url("../../_Codes/vpi/static/bg.jpg");
+  background-repeat: no-repeat;
+  background-color: #cccccc;
+   background-size: cover;
+  margin: 0;
+  font-size: 16px;
+  padding: 0 0 0 0;
+  font-family: sans-serif;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+h1,h2,h3,h4{
+  color: white;
+}
+
+
+
+.nav{
+  background-color: rgba(255,255,255,0.5);
+  text-align: right;
+  margin: 10px;
+  height: 60px;
+  line-height: 50px;
+  padding: 5px 20px 5px 0px;
+}
+
+.nav a{
+  text-decoration: none;  
+  display: inline-block;
+  padding: 0px 20px 0px 20px;
+  margin-left: 20px;
+}
+
+.buttons{
+  padding: 10px;
+}
+
+.btn{
+  margin: 10px;
+  width: 95px;
+  height: 95px;
+  background: white;
+  display: inline-block;
+  border-radius: 10px;
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+  text-transform: uppercase;
+  opacity: 0.95;
+  
+}
+
+.btn:hover{
+  opacity: 0.5;
+}
+
+input.large, select.large{
+  font-size: 35px;
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 30px;
+  
+}
+
+label{
+  padding-bottom: 10px;
+  font-size: 20px;
+  display: block;
+}
+
+button{
+  padding: 20px;
+  font-size: 20px;
+}

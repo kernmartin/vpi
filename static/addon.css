@@ -1,0 +1,44 @@
+.uk-button{
+  margin-bottom: 10px !important;
+}
+
+input.large, select.large{
+  font-size: 35px;
+  width: 50vw;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+label{
+  padding-bottom: 10px;
+  font-size: 20px;
+  display: block;
+  color: white;
+}
+
+button{
+  padding: 20px;
+  font-size: 20px;
+}
+
+.alarge{
+  color: #FFFFFF;
+  font-size: 20px;
+  padding: 5px 10px;
+  background: #000;
+  margin-right: 20px;
+  line-height: 40px;
+}
+
+.alarge:hover{
+  color: #FFFFFF;
+  background: #c5c5c5;
+  text-decoration: none;
+}
+
+
+
+h3, h4{
+  text-transform: uppercase !important;
+  color: white !important;
+}
