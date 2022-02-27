@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect
+from flask import *
 import os, os.path, glob, requests, shutil, sys
 app = Flask(__name__)
 app.config.update(
@@ -42,7 +42,8 @@ def updatefile(thefile, steps):
     a_file.writelines(list_of_lines)
     a_file.close()
 
-    return render_template("cueeditmode.html") #lands on emty cueeditmode page
+    #return render_template("cueeditmode.html") #lands on emty cueeditmode page
+    return redirect(url_for('cueeditmode'))
 
 if __name__ == "__main__":
   app.run(host='0.0.0.0')

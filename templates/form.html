@@ -1,57 +1,54 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Arduino SD Card Web Page</title>
-        <link rel="stylesheet" href="/static/styles.css">
-        <script src="/static/jquery.min.js"></script>
-        <script src="/static/magic.js"></script>
+        <title>VPI Web Page</title>
+        <link rel="stylesheet" href="/static/css/styles.css">
+        <script src="/static/js/jquery.min.js"></script>
+        <script src="/static/js/index.modern.js"></script>
+        <script src="/static/js/magic.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
-    
+
     <body>
-      <div class="nav" style="color: white;">Salzburger Festspiele</div>
-      
       <div class="buttons">
         <h3>Edit Point Cue 01</h3>
-    
+
         <label>Speed: 1 - 9</label>
-        <input type="number" 
-               value="" 
+        <input type="number"
+               value=""
                id="fS"
-               name="speed" 
-               class="large" 
+               name="speed"
+               class="large"
                min="1" max="9"
                placeholder="speed 1-9">
-        
+
         <label>Direction: 1 CW / 0 CCW</label>
-        <input value="" 
+        <input value=""
                id="fD"
-               name="direction" 
-               class="large" 
+               name="direction"
+               class="large"
                type="number" min="0" max="1"
                placeholder="Direction 0-1">
-        
+
         <label>Angle: Enter from 0 to 360</label>
-        <input value="" 
+        <input value=""
                id="fA"
-               name="angle" 
-               class="large" 
+               name="angle"
+               class="large"
                type="number" min="0" max="360"
                placeholder="Angle 0-360">
-               
-         <input type="text" value="{{txtfile}}" disabled> 
-        
+
+         <input type="text" value="{{txtfile}}" disabled>
+
           <button id="btnUpdate">Update</button>
-        
+
       </div>
-    
+
     </body>
-    
+
     <script>
       loadCues();
     </script>
-    
-    
-</html>    
 
- 
+
+</html>
