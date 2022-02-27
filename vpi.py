@@ -42,7 +42,6 @@ def updatefile(thefile, steps):
     a_file.writelines(list_of_lines)
     a_file.close()
 
-    #return render_template("cueeditmode.html") #lands on emty cueeditmode page
     return redirect(url_for('cueeditmode'))
 
 if __name__ == "__main__":
