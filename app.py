@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect
 import os, os.path, glob, requests, shutil, sys
 app = Flask(__name__)
 app.config.update(
@@ -7,7 +7,7 @@ app.config.update(
 )
 
 @app.route("/")
-def home():
+def index():
   return render_template("index.html")
 
 @app.route("/cuemode")
@@ -17,17 +17,6 @@ def cuemode():
 @app.route("/cueeditmode")
 def cueeditmode():
   return render_template("cueeditmode.html")
-
-@app.route('/move/<move>')
-def move(move):
-    msgFromClient       = move
-    bytesToSend         = str.encode(msgFromClient)
-    serverAddressPort   = ("10.0.0.12", 8888)
-    bufferSize          = 1024
-    UDPClientSocket = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
-    UDPClientSocket.sendto(bytesToSend, serverAddressPort)
-    x=10
-    return redirect(url_for('index'))
 
 @app.route('/readfile/<thefile>')
 def readfile(thefile):
@@ -39,14 +28,13 @@ def readfile(thefile):
 
     return render_template('edit.html', msg=msgl, txtfile=filenr)
 
-
 @app.route('/updatefile/<thefile>/<steps>')
 def updatefile(thefile, steps):
 
     linenr = int(thefile)
     thefile = "./static/cue.txt"
-
     a_file = open(thefile, "r")
+
     list_of_lines = a_file.readlines()
     list_of_lines[linenr] = steps + "\n"
 
@@ -54,7 +42,7 @@ def updatefile(thefile, steps):
     a_file.writelines(list_of_lines)
     a_file.close()
 
-    return redirect(url_for('cueeditmode'))
+    return render_template("cueeditmode.html")
 
 if __name__ == "__main__":
   app.run(host='0.0.0.0')
