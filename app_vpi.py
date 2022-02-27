@@ -4,8 +4,8 @@ from zipfile import ZipFile
 
 
 app = Flask(__name__)
-
-@app.route('/')
+"""
+@app.route("/")
 def index():
     path = ('./static/')
     x=0
@@ -13,7 +13,16 @@ def index():
         if files.endswith('.txt'):
             x+=1
     return render_template('index.html', msg=x)
-
+"""
+@app.route("/")
+def hello():
+   now = datetime.datetime.now()
+   timeString = now.strftime("%Y-%m-%d %H:%M")
+   templateData = {
+      'title' : 'HELLO!',
+      'time': timeString
+      }
+   return render_template('index.html', msg=x)
 
 @app.route('/cuemode')
 def cuemode():
@@ -70,6 +79,5 @@ def updatefile(thefile, steps):
 
     return redirect(url_for('cueeditmode'))
 
-
-if __name__ == '__main__':
-    app.run(debug=True, host='localhost')
+if __name__ == "__main__":
+   app.run(host='0.0.0.0', port=80, debug=True)
