@@ -42,7 +42,7 @@ def updatefile(thefile, steps):
     a_file.writelines(list_of_lines)
     a_file.close()
 
-    return render_template("cueeditmode.html")
+    return render_template("cueeditmode.html") #lands on emty cueeditmode page
 
 if __name__ == "__main__":
   app.run(host='0.0.0.0')
