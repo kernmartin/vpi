@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Arduino SD Card Web Page</title>
+        <title>VPI Web Page</title>
         <link rel="stylesheet" href="/static/css/uikit.css">
         <link rel="stylesheet" href="/static/css/addon.css">
         <script src="/static/js/index.modern.js"></script>
@@ -33,7 +33,7 @@
 
       <div class="uk-container">
       <div class="buttons">
-        <h3 style="text-transfo">Edit Point Cue 01</h3>
+        <h3 style="text-transfo">Edit Cue: {{msg}}</h3>
         <h4>Current Value: {{msg}}</h4>
         <input type="hidden" value="{{msg}}" id="txtval">
 
@@ -46,9 +46,10 @@
                min="1" max="9"
                placeholder="speed 1-9">
 
-        <label>Direction: 1 CW / 0 CCW</label>
-
-        <select name="" id="fD" class="large">
+        <label>Direction: CW / CCW</label>
+        <select name=""
+                id="fD"
+                class="large">
           <option value="0">CCW</option>
           <option value="1">CW</option>
           <!--
@@ -59,16 +60,16 @@
         </select>
 
 
-        <label>Angle: Enter from 0 to 360</label>
-        <input value=""
+        <label>Angle: 0 to 360</label>
+        <input type="number"
+               value=""
                id="fA"
                name="angle"
                class="large"
-               type="number" min="0" max="360"
+               min="0" max="360"
                placeholder="Angle 0-360">
 
                <input type="hidden" value="{{txtfile}}" disabled id="fF">
-
 
           <div class="error" id="errorMsg" style="color: red; padding: 10px; font-size: 20px; line-height: 20px;"></div>
 
