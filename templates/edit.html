@@ -9,11 +9,11 @@
         <script src="/static/magic.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
-    
+
     <style>
-    
+
     body {
-      background-image: url('/static/bgred.jpeg');
+      background-image: url('/static/img/bgred.jpeg');
       background-repeat: no-repeat;
       background-attachment: fixed;
       background-position: center;
@@ -21,62 +21,60 @@
       min-height: 100vh;
     }
     </style>
-    
+
     <body class="bgimage edit">
-      
+
       <div class="uk-container uk-padding" style="background: rgba(255,255,255,0.1); color: black;">
           <div class="uk-flex uk-flex-wrap uk-flex-wrap-around">
             <div class="uk-width-1-2"><a href="/cuemode" class="alarge">CUE</a>  <a href="/" class="alarge">MANUAL</a></div>
-            <div class="uk-width-1-2 uk-text-right"><img src="/static/logo.png" alt="" style="width: 40px; height: auto;"></div>
+            <div class="uk-width-1-2 uk-text-right"><img src="/static/img/logo.png" alt="" style="width: 40px; height: auto;"></div>
           </div>
       </div>
-      
+
       <div class="uk-container">
       <div class="buttons">
         <h3 style="text-transfo">Edit Point Cue 01</h3>
         <h4>Current Value: {{msg}}</h4>
         <input type="hidden" value="{{msg}}" id="txtval">
-        
+
         <label>Speed: 1 - 9</label>
-        <input type="number" 
-               value="" 
+        <input type="number"
+               value=""
                id="fS"
-               name="speed" 
-               class="large" 
+               name="speed"
+               class="large"
                min="1" max="9"
                placeholder="speed 1-9">
-        
+
         <label>Direction: 1 CW / 0 CCW</label>
-        
+
         <select name="" id="fD" class="large">
           <option value="0">CCW</option>
           <option value="1">CW</option>
           <!--
           <option value="3">TurnD+</option>
           <option value="4">TurnD-</option>
-          
+
         -->
         </select>
-        
-        
+
+
         <label>Angle: Enter from 0 to 360</label>
-        <input value="" 
+        <input value=""
                id="fA"
-               name="angle" 
-               class="large" 
+               name="angle"
+               class="large"
                type="number" min="0" max="360"
                placeholder="Angle 0-360">
-        
-               <input type="hidden" value="{{txtfile}}" disabled id="fF"> 
-              
-              
+
+               <input type="hidden" value="{{txtfile}}" disabled id="fF">
+
+
           <div class="error" id="errorMsg" style="color: red; padding: 10px; font-size: 20px; line-height: 20px;"></div>
-          
+
           <button id="btnUpdate">Update</button>
-        
+
       </div>
     </div>
-    </body>    
-</html>    
-
- 
+    </body>
+</html>

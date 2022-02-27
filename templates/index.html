@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Arduino SD Card Web Page</title>
+        <title>VPI Web Page</title>
         <link rel="stylesheet" href="/static/uikit.css">
         <link rel="stylesheet" href="/static/addon.css">
         <!-- <link rel="stylesheet" href="/static/styles.css"> -->
@@ -13,7 +13,7 @@
     <style>
 
     body {
-    background-image: url('/static/bg.jpg');
+    background-image: url('/static/img/bg.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -29,7 +29,7 @@
       <div class="uk-container uk-padding" style="background: rgba(255,255,255,0.1); color: black;">
           <div class="uk-flex uk-flex-wrap uk-flex-wrap-around">
             <div class="uk-width-auto"><a href="/cuemode" class="alarge">CUE</a>  <a href="/cueeditmode" class="alarge">CUE EDIT</a></div>
-            <div class="uk-width-expand uk-text-right"><img src="/static/logo.png" alt="" style="width: 40px; height: auto;"></div>
+            <div class="uk-width-expand uk-text-right"><img src="/static/img/logo.png" alt="" style="width: 40px; height: auto;"></div>
           </div>
       </div>
 
@@ -92,7 +92,12 @@
 
         </div>
 
+        <form>
+          <input type="text" pattern="\d*">
+          <button type="submit">Submit</button>
+        </form>
       </div>
+
 
     </body>
 

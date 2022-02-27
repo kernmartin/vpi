@@ -9,51 +9,51 @@
         <script src="/static/magic.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
-    
+
     <style>
-    
+
     body {
-    background-image: url('/static/bgblue.jpeg');
+    background-image: url('/static/img/bgblue.jpeg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
     min-height: 100vh;
-    
+
     }
     </style>
-    
+
     <body class="bgimage">
-      
-      
+
+
       <div class="uk-container uk-padding" style="background: rgba(255,255,255,0.1); color: black;">
           <div class="uk-flex uk-flex-wrap uk-flex-wrap-around">
             <div class="uk-width-auto"><a href="/cueeditmode" class="alarge">CUE EDIT</a>  <a href="/" class="alarge">MANUAL</a></div>
-            <div class="uk-width-expand uk-text-right"><img src="/static/logo.png" alt="" style="width: 40px; height: auto;"></div>
+            <div class="uk-width-expand uk-text-right"><img src="/static/img/logo.png" alt="" style="width: 40px; height: auto;"></div>
           </div>
-      </div> 
-    
-    
+      </div>
+
+
       <div class="uk-container uk-margin-bottom">
         <div class="uk-width-1-1"><h3 style="color: white;">CUE POINTS</h3></div>
-        
+
         <div class="uk-grid uk-child-width-1-2@s uk-child-width-1-1  uk-grid-large uk-grid-row-small" id="loadCues">
-          <!-- here goes the cue --> 
+          <!-- here goes the cue -->
         </div>
-        
-      </div>        
-  
+
+      </div>
+
       <input type="hidden" value="{{msg}}" id="numFiles">
-    
+
     </body>
-    
-    
-    
-</html>    
+
+
+
+</html>
 
 <script>
 $( document ).ready(function() {
-  
+
 
 
 var delayInMilliseconds = 1000; //1 second
@@ -74,25 +74,25 @@ function loadCues(){
   console.log("HELLO WORLD");
 
     $.get('static/cue.txt', function(data) {
-      
+
       var lines = data.split('\n');
       for(var line = 0; line < lines.length; line++){
-        
+
         //console.log(lines[line]);
         newB += '<div><a href="';
-        newB += lines[line] + '" '; 
+        newB += lines[line] + '" ';
         newB += 'class="gB btn uk-button uk-button-secondary uk-button-large uk-width-1-1">';
         newB += lines[line];
         newB += '</a></div>';
         //$( newB  ).appendTo( "#loadCues" );
 
       }
-  
+
       $("#loadCues").html(newB);
-      
+
       /*
       var newB = '<div data-order="'+i+'"><a href="';
-      newB += data + '" '; 
+      newB += data + '" ';
       newB += 'class="gB btn uk-button uk-button-secondary uk-button-large uk-width-1-1">';
       newB += data + " : " + i;
       newB += '</a></div>';
@@ -101,11 +101,9 @@ function loadCues(){
     });
 
   }
-  
+
 
 
 
 }); // END JQ
 </script>
-
- 
