@@ -1,3 +1,42 @@
+import RPi.GPIO as GPIO
+import sys
+import time
+
+GPIO.setmode(GPIO.BOARD)
+
+# TB6600 Treiber Setup
+DIR = 11
+PUL = 13
+ENA = 15
+
+# POS
+POS = 0
+
+DIR_Left = GPIO.HIGH
+DIR_Right = GPIO.LOW
+
+ENA_Locked = GPIO.LOW
+ENA_Released = GPIO.HIGH
+
+GPIO.setwarnings(False)
+GPIO.setup(DIR, GPIO.OUT)
+GPIO.setup(PUL, GPIO.OUT)
+GPIO.setup(ENA, GPIO.OUT)
+
+# Motor Setup
+STEP_ANGLE = 1.8 # degree
+RAMP_LENGTH = 600 # steps
+MIN_RPM = 250
+MAX_RPM = 3200
+
+# Frequenzberechnung
+stepsPerRevolution = 360 / STEP_ANGLE
+
+minFrequency = 1 / (MAX_RPM / 60 * stepsPerRevolution)
+maxFrequency = 1 / (MIN_RPM / 60 * stepsPerRevolution)
+
+rampSlope = (maxFrequency - minFrequency) / RAMP_LENGTH
+
 def calculateStepsDestination(destination, direction, over=0) 
     
     steps = 0
@@ -32,6 +71,53 @@ def calculateStepsDestination(destination, direction, over=0)
 
 def setCueStartPoint(destination)
     steps = 0
-    atob = POS - destination
-    
+    if POS > destination:
+        calculateStepsDestination(destination, 0, 0) 
+    else:
+        calculateStepsDestination(destination, 1, 0)
         
+        
+def moveBy(steps)
+
+    GPIO.output(ENA, ENA_Locked)
+    currentFreqency = maxFrequency
+    
+    for i in range(abs(steps)):
+    
+    # Richtung festlegen
+        if (steps < 0):
+            GPIO.output(DIR, DIR_Right)
+        else:
+            GPIO.output(DIR, DIR_Left)
+            
+        # Schritt ausführen
+        GPIO.output(PUL, GPIO.HIGH)
+        time.sleep(currentFreqency / 2)
+
+        GPIO.output(PUL, GPIO.LOW)
+        time.sleep(currentFreqency / 2)
+        
+        # aktuelle Schrittposition mitzählen
+        if (steps < 0):
+            POS -= 1
+            print(POS / (200.*16))
+        else:
+            POS += 1
+            print(POS / (200.*16))
+        
+        
+        # Rampensteigung auf aktuelle Frequenz anwenden
+        if (abs(steps) > 2 * RAMP_LENGTH):
+            if (i < RAMP_LENGTH):
+                currentFreqency -= rampSlope
+            else:
+                if (i > abs(steps) - RAMP_LENGTH):
+                    currentFreqency += rampSlope
+        else:
+            if (i < abs(steps) / 2):
+                currentFreqency -= rampSlope
+            else:
+                currentFreqency += rampSlope
+    
+      GPIO.output(ENA, ENA_Released)
+      
