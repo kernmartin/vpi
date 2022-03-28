@@ -136,11 +136,11 @@ def moveBy(steps):
             elif counter == STEP_CAL:
                 if (steps < 0):
                     POS -= 1 
-                    print("Position__: ", POS)
+                    print("Position__x: ", POS)
                     print("counter: ", counter)
                 else:
                     POS += 1 
-                    print("Position__: ", POS)
+                    print("Position__x: ", POS)
                     print("counter: ", counter)
                 counter = 0
 
