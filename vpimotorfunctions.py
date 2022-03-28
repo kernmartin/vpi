@@ -14,7 +14,7 @@ def calculateStepsDestination(destination, direction, over=0)
     elif direction = 0:
         # CCW
         if destination > POS:
-            steps = 360 - destination - POS
+            steps = 360 - destination + POS
         elif destination < POS
             steps = POS - destinatin
         elif destination == POS
