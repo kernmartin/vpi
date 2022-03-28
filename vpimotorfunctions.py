@@ -31,7 +31,7 @@ RAMP_LENGTH = 600 # steps
 MIN_RPM = 250
 MAX_RPM = 3200
 STEP_CAL = 50
-
+    
 
 # Frequenzberechnung
 stepsPerRevolution = 360 / STEP_ANGLE
@@ -50,6 +50,8 @@ def calculateStepsDestination(iDestination, iDirection, iOver):
     global POS
     global STOP
     global BUSY
+    
+    print("STARTING AT ", POS, " GOING TO: " destination)
     
     if BUSY == 1:
         stopMotor()
