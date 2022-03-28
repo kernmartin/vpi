@@ -46,12 +46,6 @@ maxFrequency = 1 / (MIN_RPM / 60 * stepsPerRevolution)
 rampSlope = (maxFrequency - minFrequency) / RAMP_LENGTH
 
 
-def otherDriver():
-    mymotortest = RpiMotorLib.A4988Nema(DIR, PUL, (21,21,21), "DRV8825")
-    GPIO.setup(ENA,GPIO.OUT)
-    GPIO.output(EN_pin,GPIO.LOW) # pull enable to low to enable motor
-    mymotortest.motor_go(False, "1/16" , 200, .0005, False, .05)
-    GPIO.cleanup()
     
 def calculateStepsDestination(iDestination, iDirection, iOver):
     
@@ -170,7 +164,6 @@ def moveBy(steps):
     BUSY = 0
     STOP = 0
     print("Finished at POS: ", POS)
-    GPIO.cleanup()
     
 def stopMotor():
     print("def StopMotor: ")
