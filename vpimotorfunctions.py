@@ -109,7 +109,7 @@ def moveBy(steps):
     global POS
     global STOP
     BUSY = 1
-    steps = steps * DEGREE_STEP
+    steps = int(steps * DEGREE_STEP)
     print("moveBY Steps CALC: ", steps)
     counter = 0
 
