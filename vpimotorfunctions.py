@@ -112,8 +112,9 @@ def moveBy(steps):
     global POS
     global STOP
     BUSY = 1
-    steps = int(steps * 8.89 * 180)
-    print("moveBY Steps CALC: ", steps)
+    #steps = int(steps * 8.89 * 180)
+    #steps = 200 * 16 * 180
+    print("HARDCODED STEPS ", steps)
     counter = 0
 
     GPIO.output(ENA, ENA_Locked)

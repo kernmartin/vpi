@@ -37,6 +37,11 @@ def readfile(thefile):
 def gotocue(destination, direction, over):
     motor.calculateStepsDestination(destination, direction, over)
     return redirect(url_for('index'))
+    
+@app.route('/steps/<steps>')
+def steps(steps):
+    motor.moveBy(steps)
+    
 
 @app.route('/updatefile/<thefile>/<steps>')
 def updatefile(thefile, steps):
