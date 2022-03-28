@@ -64,7 +64,8 @@ def calculateStepsDestination(destination, direction, over):
 
     if direction == 0:
         steps = steps * -1
-
+    print("line 67 - STEPS: ")
+    print(steps)
     return moveBy(steps)
 
 def setCueStartPoint(destination):
@@ -77,7 +78,7 @@ def setCueStartPoint(destination):
 
 def moveBy(steps):
     steps = steps * STEP_CAL
-    print ("steps")
+    print (steps)
     GPIO.output(ENA, ENA_Locked)
     currentFreqency = maxFrequency
 
