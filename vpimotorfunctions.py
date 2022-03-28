@@ -104,11 +104,13 @@ def setCueStartPoint(destination):
 
 
 def moveBy(steps):
+    print("moveBY Steps incoming: ", steps)
     global BUSY
     global POS
     global STOP
     BUSY = 1
     steps = steps * STEP_CAL
+    print("moveBY Steps CALC: ", steps)
     counter = 0
 
     GPIO.output(ENA, ENA_Locked)
@@ -135,12 +137,10 @@ def moveBy(steps):
             if (steps < 0):
                 POS -= DEGREE_STEP 
                 print("Position: ", POS)
-                print("counter: ", counter)
-                
             else:
                 POS -= DEGREE_STEP  
                 print("Position: ", POS)
-                print("counter: ", counter)
+                
                 
 
             # Rampensteigung auf aktuelle Frequenz anwenden
