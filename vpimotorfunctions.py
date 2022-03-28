@@ -110,6 +110,7 @@ def moveBy(steps):
     global STOP
     BUSY = 1
     steps = steps * STEP_CAL
+    counter = 0
 
     GPIO.output(ENA, ENA_Locked)
     currentFreqency = maxFrequency
@@ -130,14 +131,17 @@ def moveBy(steps):
             time.sleep(currentFreqency / 2)
 
             # aktuelle Schrittposition mitzählen
-            if (steps < 0):
-                POS -= 1 / STEP_CAL
-                POS = round(POS)
-                print("Position: ", POS)
-            else:
-                POS += 1 / STEP_CAL
-                POS = round(POS)
-                print("Position: ", POS)
+            
+            if counter < STEP_CAL:
+                counter += 1
+            elif counter == STEP_CAL:
+                if (steps < 0):
+                    POS -= 1 
+                    print("Position: ", POS)
+                else:
+                    POS += 1 / STEP_CAL
+                    print("Position: ", POS)
+                counter = 0
 
             # Rampensteigung auf aktuelle Frequenz anwenden
             if (abs(steps) > 2 * RAMP_LENGTH):
