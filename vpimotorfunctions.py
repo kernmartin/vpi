@@ -32,6 +32,11 @@ MIN_RPM = 250
 MAX_RPM = 3200
 STEP_CAL = 50
 
+print("-----------------------------------*")
+print("MotorPY started with POS: ", POS)
+print("MotorPY STEP_CAL: ", STEP_CAL)
+print("-----------------------------------*")
+
 # Frequenzberechnung
 stepsPerRevolution = 360 / STEP_ANGLE
 
@@ -42,6 +47,9 @@ rampSlope = (maxFrequency - minFrequency) / RAMP_LENGTH
 
 def calculateStepsDestination(iDestination, iDirection, iOver):
     steps = 0
+    direction = int(iDirection)
+    destination = int(iDestination)
+    over = int(iOver)
     global POS
     global STOP
     global BUSY
@@ -51,30 +59,31 @@ def calculateStepsDestination(iDestination, iDirection, iOver):
         STOP = 0
         BUSY = 0
         
-    
-    direction = int(iDirection)
-    destination = int(iDestination)
-    over = int(iOver)
-
     if direction == 1:
         #CW
-        print("Direciton is 1")
+        print("Direction is 1 CW")
         if destination > POS:
             steps = destination - POS
+            print("CW destination > POS")
         elif destination < POS:
             steps = 360 - POS + destination
+            print("CW Destination < POS")
         elif destination == POS:
             steps = 0
+            print("POS already on position")
 
     elif direction == 0:
         # CCW
-        print("Direciton is 0")
+        print("Direction is 0 CCW")
         if destination > POS:
             steps = 360 - destination + POS
+            print("CCW destination > POS")
         elif destination < POS:
             steps = POS - destination
+            print("destination < POS")
         elif destination == POS:
             steps = 0
+            print("Already on position")
 
     # Drüberdrehen wie oft
     if over != 0:
@@ -83,7 +92,7 @@ def calculateStepsDestination(iDestination, iDirection, iOver):
     if direction == 0:
         steps = steps * -1
     
-    moveBy(steps)
+    moveBy(int(steps))
 
 
 
@@ -100,15 +109,7 @@ def moveBy(steps):
     global POS
     global STOP
     BUSY = 1
-    print ("Steps: ")
-    print (steps)
-    print (" x ")
-    print (STEP_CAL)
     steps = steps * STEP_CAL
-    print (" = ")
-    print (steps)
-
-    
 
     GPIO.output(ENA, ENA_Locked)
     currentFreqency = maxFrequency
@@ -136,7 +137,6 @@ def moveBy(steps):
                 POS += 1
                 print("Position: ", POS)
 
-
             # Rampensteigung auf aktuelle Frequenz anwenden
             if (abs(steps) > 2 * RAMP_LENGTH):
                 if (i < RAMP_LENGTH):
@@ -149,14 +149,20 @@ def moveBy(steps):
                     currentFreqency -= rampSlope
                 else:
                     currentFreqency += rampSlope
+        else:
+            print("link 153 Motor stopped at POS", POS)
 
     GPIO.output(ENA, ENA_Released)
     BUSY = 0
     STOP = 0
     
 def stopMotor():
+    print("def StopMotor: ")
     global STOP
     global POS
     global BUSY
     STOP = 1
     print("Motor stopped at Position: ", POS)
+    
+    
+    
