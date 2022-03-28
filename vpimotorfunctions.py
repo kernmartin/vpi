@@ -44,10 +44,7 @@ rampSlope = (maxFrequency - minFrequency) / RAMP_LENGTH
 
 def calculateStepsDestination(iDestination, iDirection, iOver):
     
-    print("-----------------------------------*")
-    print("MotorPY started with POS: ", POS)
-    print("MotorPY STEP_CAL: ", STEP_CAL)
-    print("-----------------------------------*")
+    
     
     steps = 0
     direction = int(iDirection)
@@ -56,6 +53,11 @@ def calculateStepsDestination(iDestination, iDirection, iOver):
     global POS
     global STOP
     global BUSY
+    
+    print("-----------------------------------*")
+    print("MotorPY started with POS: ", POS)
+    print("MotorPY STEP_CAL: ", STEP_CAL)
+    print("-----------------------------------*")
     
     if BUSY == 1:
         stopMotor()
