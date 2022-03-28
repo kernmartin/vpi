@@ -1,5 +1,4 @@
 from flask import *
-from pythonosc.udp_client import SimpleUDPClient
 import vpimotorfunctions as motor
 import os, os.path, glob, requests, shutil, sys
 app = Flask(__name__)
@@ -7,10 +6,6 @@ app.config.update(
     DEBUG=True,
     TEMPLATES_AUTO_RELOAD=True,
 )
-
-ip = "127.0.0.1"
-port = 5432
-client = SimpleUDPClient(ip, port)  # Create client
 
 @app.route("/")
 def index():
@@ -26,8 +21,6 @@ def cueeditmode():
 
 @app.route('/move/<move>')
 def move(move):
-    oscFromCue = move
-    client.send_message("/osc/cue", move)
     return redirect(url_for('index'))
 
 @app.route('/readfile/<thefile>')
@@ -41,8 +34,8 @@ def readfile(thefile):
     return render_template('edit.html', msg=msgl, txtfile=filenr)
 
 @app.route('/gotocue/<destination>/<direction>/<over>')
-def gotocue(destination, direction, over)
-    motor.calculateStepsDestination(destination, direction, over) 
+def gotocue(destination, direction, over):
+    motor.calculateStepsDestination(destination, direction, over)
     return render_template("cuemode.html")
 
 @app.route('/updatefile/<thefile>/<steps>')
