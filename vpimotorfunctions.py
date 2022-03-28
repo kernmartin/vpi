@@ -113,7 +113,7 @@ def moveBy(steps):
     currentFreqency = maxFrequency
 
     for i in range(abs(steps)):
-        if STOP == 0:
+        while STOP == 0:
             # Richtung festlegen
             if (steps < 0):
                 GPIO.output(DIR, DIR_Right)
@@ -130,10 +130,10 @@ def moveBy(steps):
             # aktuelle Schrittposition mitzählen
             if (steps < 0):
                 POS -= 1
-                #print(POS / (200.*16))
+                print("Position: ", POS)
             else:
                 POS += 1
-                #print(POS / (200.*16))
+                print("Position: ", POS)
 
 
             # Rampensteigung auf aktuelle Frequenz anwenden
@@ -151,11 +151,14 @@ def moveBy(steps):
 
     GPIO.output(ENA, ENA_Released)
     BUSY = 0
+    STOP = 0
     
 def stopMotor():
     global STOP
     global POS
     global BUSY
     STOP = 1
-    BUSY = 0
     print("Motor stopped at Position: ", POS)
+    time.sleep(0.2)
+    BUSY = 0
+    STOP = 0
