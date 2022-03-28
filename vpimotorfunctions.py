@@ -40,7 +40,7 @@ rampSlope = (maxFrequency - minFrequency) / RAMP_LENGTH
 
 def calculateStepsDestination(iDestination, iDirection, iOver):
     steps = 0
-
+    global POS
     direction = int(iDirection)
     destination = int(iDestination)
     over = int(iOver)
