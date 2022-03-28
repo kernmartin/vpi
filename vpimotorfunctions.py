@@ -32,7 +32,8 @@ MIN_RPM = 250
 MAX_RPM = 3200
 STEP_CAL = 3200 * 180
 DEGREE_STEP = STEP_CAL / 360  
-WORM_GEAR = 180    
+WORM_GEAR = 180   
+# WORM 180 * 3200  
 # STEPS 3200 pro 360 
 # Frequenzberechnung
 stepsPerRevolution = 3200
@@ -93,6 +94,7 @@ def calculateStepsDestination(iDestination, iDirection, iOver):
         steps = steps * -1
     
     moveBy(int(steps))
+    
 
 
 
@@ -105,12 +107,12 @@ def setCueStartPoint(destination):
 
 
 def moveBy(steps):
-    print("moveBY Steps incoming: ", steps)
+    print("moveBY DEGREE incoming: ", steps)
     global BUSY
     global POS
     global STOP
     BUSY = 1
-    steps = int(steps * DEGREE_STEP)
+    steps = int(steps * 8.89 * 180)
     print("moveBY Steps CALC: ", steps)
     counter = 0
 
