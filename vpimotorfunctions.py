@@ -11,6 +11,7 @@ ENA = 15
 
 # POS
 POS = 0
+steps = 0
 
 DIR_Left = GPIO.HIGH
 DIR_Right = GPIO.LOW
@@ -28,6 +29,7 @@ STEP_ANGLE = 1.8 # degree
 RAMP_LENGTH = 600 # steps
 MIN_RPM = 250
 MAX_RPM = 3200
+STEP_CAL = 5000
 
 # Frequenzberechnung
 stepsPerRevolution = 360 / STEP_ANGLE
@@ -37,66 +39,63 @@ maxFrequency = 1 / (MIN_RPM / 60 * stepsPerRevolution)
 
 rampSlope = (maxFrequency - minFrequency) / RAMP_LENGTH
 
-def calculateStepsDestination(destination, direction, over=0) 
-    
-    steps = 0
-
+def calculateStepsDestination(destination, direction, over):
     if direction == 1:
         #CW
         if destination > POS:
             steps = destination - POS
-        elif destination < POS
-            steps = 360 - POS + destination 
-        elif destination == POS
+        elif destination < POS:
+            steps = 360 - POS + destination
+        elif destination == POS:
             steps = 0
-            
-    elif direction = 0:
+
+    elif direction == 0:
         # CCW
         if destination > POS:
             steps = 360 - destination + POS
-        elif destination < POS
+        elif destination < POS:
             steps = POS - destination
-        elif destination == POS
+        elif destination == POS:
             steps = 0
-    
-    # Drüberdrehen wie oft         
+
+    # Drüberdrehen wie oft
     if over != 0:
         steps = steps + over * 360
-        
-    if direction == 0: 
+
+    if direction == 0:
         steps = steps * -1
-        
-    moveBy(steps)
 
+    return moveBy(steps)
 
-def setCueStartPoint(destination)
+def setCueStartPoint(destination):
     steps = 0
     if POS > destination:
-        calculateStepsDestination(destination, 0, 0) 
+        calculateStepsDestination(destination, 0, 0)
     else:
         calculateStepsDestination(destination, 1, 0)
-        
-        
-def moveBy(steps)
 
+
+def moveBy(steps):
+    steps = steps * STEP_CAL
+    print ("steps")
     GPIO.output(ENA, ENA_Locked)
     currentFreqency = maxFrequency
-    
+
     for i in range(abs(steps)):
-    
+
     # Richtung festlegen
         if (steps < 0):
             GPIO.output(DIR, DIR_Right)
         else:
             GPIO.output(DIR, DIR_Left)
-            
+
         # Schritt ausführen
         GPIO.output(PUL, GPIO.HIGH)
         time.sleep(currentFreqency / 2)
 
         GPIO.output(PUL, GPIO.LOW)
         time.sleep(currentFreqency / 2)
-        
+
         # aktuelle Schrittposition mitzählen
         if (steps < 0):
             POS -= 1
@@ -104,8 +103,8 @@ def moveBy(steps)
         else:
             POS += 1
             print(POS / (200.*16))
-        
-        
+
+
         # Rampensteigung auf aktuelle Frequenz anwenden
         if (abs(steps) > 2 * RAMP_LENGTH):
             if (i < RAMP_LENGTH):
@@ -118,6 +117,5 @@ def moveBy(steps)
                 currentFreqency -= rampSlope
             else:
                 currentFreqency += rampSlope
-    
-      GPIO.output(ENA, ENA_Released)
-      
+
+    GPIO.output(ENA, ENA_Released)
