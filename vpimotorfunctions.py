@@ -112,8 +112,6 @@ def moveBy(steps):
     global POS
     global STOP
     BUSY = 1
-    #steps = int(steps * 8.89 * 180)
-    #steps = 200 * 16 * 180
     print("HARDCODED STEPS ", steps)
     
     counter = 0
@@ -143,12 +141,12 @@ def moveBy(steps):
                 POS -= 1 / STEP_CAL 
                 if POS == 0:
                     POS = 360
-                print("Position: ", POS)
+                #print("Position: ", POS)
             else:
                 POS += 1 / STEP_CAL 
                 if POS == 360:
                     POS = 0
-                print("Position: ", POS)
+                #print("Position: ", POS)
                 
                 
 
