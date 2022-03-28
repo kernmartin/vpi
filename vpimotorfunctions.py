@@ -130,7 +130,6 @@ def moveBy(steps):
     currentFreqency = maxFrequency
 
     for i in range(abs(steps)):
-        while (True):
             # Richtung festlegen
             if (steps < 0):
                 GPIO.output(DIR, DIR_Right)
@@ -165,8 +164,6 @@ def moveBy(steps):
                     #currentFreqency -= rampSlope
                 #else:
                     #currentFreqency += rampSlope
-            if STOP == 1:
-                break
 
     GPIO.output(ENA, ENA_Released)
     POS = round(POS)
