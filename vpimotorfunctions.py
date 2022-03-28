@@ -84,7 +84,7 @@ def setCueStartPoint(destination):
 
 
 def moveBy(steps):
-    
+
     print ("Steps: ")
     print (steps)
     print (" x ")
@@ -92,9 +92,9 @@ def moveBy(steps):
     steps = steps * STEP_CAL
     print (" = ")
     print (steps)
-    
+
     global POS
-    
+
     GPIO.output(ENA, ENA_Locked)
     currentFreqency = maxFrequency
 
@@ -116,10 +116,10 @@ def moveBy(steps):
         # aktuelle Schrittposition mitzählen
         if (steps < 0):
             POS -= 1
-            print(POS / (200.*16))
+            #print(POS / (200.*16))
         else:
             POS += 1
-            print(POS / (200.*16))
+            #print(POS / (200.*16))
 
 
         # Rampensteigung auf aktuelle Frequenz anwenden
