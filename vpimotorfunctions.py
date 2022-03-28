@@ -29,9 +29,9 @@ GPIO.setup(ENA, GPIO.OUT)
 
 # Motor Setup
 STEP_ANGLE = 1.8 # degree
-RAMP_LENGTH = 600 # steps
-MIN_RPM = 250
-MAX_RPM = 3200
+RAMP_LENGTH = 300 # steps
+MIN_RPM = 150
+MAX_RPM = 250
 STEP_CAL = 3200 * 180
 DEGREE_STEP = STEP_CAL / 360
 WORM_GEAR = 180
@@ -98,9 +98,6 @@ def calculateStepsDestination(iDestination, iDirection, iOver):
         steps = steps * -1
 
     moveBy(int(steps))
-
-
-
 
 def setCueStartPoint(destination):
     steps = 0
