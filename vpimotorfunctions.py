@@ -31,7 +31,7 @@ RAMP_LENGTH = 600 # steps
 MIN_RPM = 250
 MAX_RPM = 3200
 STEP_CAL = 50
-    
+DEGREE_STEP = 360 * STEP_CAL    
 
 # Frequenzberechnung
 stepsPerRevolution = 360 / STEP_ANGLE
@@ -131,18 +131,17 @@ def moveBy(steps):
 
             # aktuelle Schrittposition mitzählen
             
-            if counter < STEP_CAL:
-                counter += 1
-            elif counter == STEP_CAL:
-                if (steps < 0):
-                    POS -= 1 
-                    print("Position__x: ", POS)
-                    print("counter: ", counter)
-                else:
-                    POS += 1 
-                    print("Position__x: ", POS)
-                    print("counter: ", counter)
-                counter = 0
+            
+            if (steps < 0):
+                POS -= DEGREE_STEP 
+                print("Position: ", POS)
+                print("counter: ", counter)
+                
+            else:
+                POS -= DEGREE_STEP  
+                print("Position: ", POS)
+                print("counter: ", counter)
+                
 
             # Rampensteigung auf aktuelle Frequenz anwenden
             if (abs(steps) > 2 * RAMP_LENGTH):
