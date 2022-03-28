@@ -114,7 +114,7 @@ def moveBy(steps):
     currentFreqency = maxFrequency
 
     for i in range(abs(steps)):
-        while STOP == 0:
+        if STOP == 0:
             # Richtung festlegen
             if (steps < 0):
                 GPIO.output(DIR, DIR_Right)
