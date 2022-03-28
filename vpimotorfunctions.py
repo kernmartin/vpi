@@ -150,7 +150,7 @@ def moveBy(steps):
                 else:
                     currentFreqency += rampSlope
         else:
-            print("link 153 Motor stopped at POS", POS)
+            break
 
     GPIO.output(ENA, ENA_Released)
     BUSY = 0
