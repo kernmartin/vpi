@@ -58,8 +58,8 @@ def calculateStepsDestination(destination, direction, over):
             steps = 0
 
     # Drüberdrehen wie oft
-    if over != 0:
-        steps = steps + over * 360
+    #if over != 0:
+        #steps = steps + over * 360
 
     if direction == 0:
         steps = steps * -1
