@@ -159,7 +159,7 @@ def moveBy(steps):
             break
 
     GPIO.output(ENA, ENA_Released)
-    round(POS)
+    POS = round(POS)
     BUSY = 0
     STOP = 0
     print("Finished at POS: ", POS)
@@ -171,7 +171,7 @@ def stopMotor():
     
     global BUSY
     STOP = 1
-    round(POS)
+    POS = round(POS)
     print("Motor stopped at Position: ", POS)
     
     
