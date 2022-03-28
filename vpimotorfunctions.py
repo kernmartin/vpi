@@ -106,9 +106,8 @@ def setCueStartPoint(destination):
         calculateStepsDestination(destination, 1, 0)
 
 
-def moveBy(iSteps):
+def moveBy(steps):
     print("moveBY DEGREE incoming: ", steps)
-    steps = int(iSteps)
     global BUSY
     global POS
     global STOP

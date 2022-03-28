@@ -40,7 +40,7 @@ def gotocue(destination, direction, over):
     
 @app.route('/steps/<steps>')
 def steps(steps):
-    motor.moveBy(steps)
+    motor.moveBy(int(steps))
     
 
 @app.route('/updatefile/<thefile>/<steps>')
