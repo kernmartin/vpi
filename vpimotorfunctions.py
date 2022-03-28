@@ -10,6 +10,7 @@ DIR = 11
 PUL = 13
 ENA = 15
 
+
 # POS
 POS = 0
 BUSY = 0
@@ -44,6 +45,14 @@ maxFrequency = 1 / (MIN_RPM / 60 * stepsPerRevolution)
 
 rampSlope = (maxFrequency - minFrequency) / RAMP_LENGTH
 
+
+def otherDriver():
+    mymotortest = RpiMotorLib.A4988Nema(DIR, PUL, (21,21,21), "DRV8825")
+    GPIO.setup(ENA,GPIO.OUT)
+    GPIO.output(EN_pin,GPIO.LOW) # pull enable to low to enable motor
+    mymotortest.motor_go(False, "1/16" , 200, .0005, False, .05)
+    GPIO.cleanup()
+    
 def calculateStepsDestination(iDestination, iDirection, iOver):
     
     steps = 0
@@ -121,7 +130,7 @@ def moveBy(steps):
     currentFreqency = maxFrequency
 
     for i in range(abs(steps)):
-        if STOP == 0:
+        while (True):
             # Richtung festlegen
             if (steps < 0):
                 GPIO.output(DIR, DIR_Right)
@@ -136,19 +145,12 @@ def moveBy(steps):
             time.sleep(minFrequency)
 
             # aktuelle Schrittposition mitzählen
-            
-            
             if (steps < 0):
-                POS -= 1 / STEP_CAL 
-                if POS == 0:
-                    POS = 360
-                #print("Position: ", POS)
+                POS -= 1 
+                print("Position: ", POS)
             else:
-                POS += 1 / STEP_CAL 
-                if POS == 360:
-                    POS = 0
-                #print("Position: ", POS)
-                
+                POS += 1 
+                print("Position: ", POS)
                 
 
             # Rampensteigung auf aktuelle Frequenz anwenden
@@ -163,20 +165,20 @@ def moveBy(steps):
                     #currentFreqency -= rampSlope
                 #else:
                     #currentFreqency += rampSlope
-        else:
-            break
+            if STOP == 1:
+                break
 
     GPIO.output(ENA, ENA_Released)
     POS = round(POS)
     BUSY = 0
     STOP = 0
     print("Finished at POS: ", POS)
+    GPIO.cleanup()
     
 def stopMotor():
     print("def StopMotor: ")
     global STOP
     global POS
-    
     global BUSY
     STOP = 1
     POS = round(POS)

@@ -30,12 +30,21 @@ def readfile(thefile):
     file1 = open(thefile, 'r')
     Lines = file1.readlines()
     msgl = Lines[int(filenr)]
-
     return render_template('edit.html', msg=msgl, txtfile=filenr)
 
 @app.route('/gotocue/<destination>/<direction>/<over>')
 def gotocue(destination, direction, over):
     motor.calculateStepsDestination(destination, direction, over)
+    return redirect(url_for('index'))
+    
+@app.route('/stop')
+def stopMotor():
+    motor.stopMotor()
+    return redirect(url_for('index'))
+    
+@app.route('/otherdriver')
+def otherdriver():
+    motor.otherDriver()
     return redirect(url_for('index'))
     
 @app.route('/steps/<steps>')
