@@ -136,9 +136,15 @@ def moveBy(steps):
             
             if (steps < 0):
                 POS -= 1 / STEP_CAL 
+                POS = round(POS)
+                if POS == 0:
+                    POS = 360
                 print("Position: ", POS)
             else:
                 POS += 1 / STEP_CAL 
+                POS = round(POS)
+                if POS == 360:
+                    POS = 0
                 print("Position: ", POS)
                 
                 
