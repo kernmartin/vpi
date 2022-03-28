@@ -1,6 +1,5 @@
 from flask import *
 from pythonosc.udp_client import SimpleUDPClient
-import vpimotor
 import os, os.path, glob, requests, shutil, sys
 app = Flask(__name__)
 app.config.update(
@@ -27,8 +26,6 @@ def cueeditmode():
 @app.route('/move/<move>')
 def move(move):
     oscFromCue = move
-    steps = int(move)
-    currentPosition = vpimotor.moveTo(steps)
     client.send_message("/osc/cue", move)
     return redirect(url_for('index'))
 
