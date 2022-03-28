@@ -51,7 +51,7 @@ def calculateStepsDestination(iDestination, iDirection, iOver):
     global STOP
     global BUSY
     
-    print("STARTING AT ", POS, " GOING TO: " destination)
+    print("STARTING AT ", POS, " GOING TO: ", destination)
     
     if BUSY == 1:
         stopMotor()
