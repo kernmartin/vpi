@@ -24,10 +24,10 @@ GPIO.setup(ENA, GPIO.OUT)
 STEP_ANGLE = 1.8 # degree
 RAMP_LENGTH = 600 # steps
 MIN_RPM = 250
-MAX_RPM = 800
+MAX_RPM = 3200
 
 # maximale Schrittzahl, die sich der Motor vom Nullpunkt weg bewegen darf
-MAX_STEPS = 5000
+MAX_STEPS = 1000000
 
 # Frequenzberechnung
 stepsPerRevolution = 360 / STEP_ANGLE
@@ -113,8 +113,10 @@ def moveBy (steps):
         # aktuelle Schrittposition mitzählen
         if (steps < 0):
             currentPosition -= 1
+            print(currentPosition / (200.*16));
         else:
             currentPosition += 1
+            print(currentPosition / (200.*16));
 
         # Rampensteigung auf aktuelle Frequenz anwenden
         if (abs(steps) > 2 * RAMP_LENGTH):
@@ -137,14 +139,11 @@ def moveBy (steps):
     return currentPosition
 
 # Parameter vom Scriptaufruf abfragen
-if (len(sys.argv) != 2):
-    print("Fehlender Parameter: Anzahl Schritte");
-    sys.exit();
-
-steps = int(sys.argv[1])
+steps = int(10000)
+#steps = int(sys.argv[1])
 print("Schritte: " + str(steps))
 
 # Funktion moveBy() mit dem Parameter füttern
 # probiere auch: moveTo()
-currentPosition = moveBy(steps)
+currentPosition = moveTo(steps)
 print("Erreichte Position: " + str(currentPosition))
