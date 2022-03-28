@@ -31,7 +31,7 @@ RAMP_LENGTH = 600 # steps
 MIN_RPM = 250
 MAX_RPM = 3200
 STEP_CAL = 3200
-DEGREE_STEP = 360 * STEP_CAL    
+DEGREE_STEP = STEP_CAL / 360      
 # STEPS 3200 pro 360 
 # Frequenzberechnung
 stepsPerRevolution = 3200
@@ -109,7 +109,7 @@ def moveBy(steps):
     global POS
     global STOP
     BUSY = 1
-    steps = steps * STEP_CAL
+    steps = steps * DEGREE_STEP
     print("moveBY Steps CALC: ", steps)
     counter = 0
 
@@ -136,13 +136,11 @@ def moveBy(steps):
             
             if (steps < 0):
                 POS -= 1 / STEP_CAL 
-                POS = round(POS)
                 if POS == 0:
                     POS = 360
                 print("Position: ", POS)
             else:
                 POS += 1 / STEP_CAL 
-                POS = round(POS)
                 if POS == 360:
                     POS = 0
                 print("Position: ", POS)
