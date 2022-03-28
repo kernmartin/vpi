@@ -139,7 +139,7 @@ def moveBy(steps):
                     print("Position__: ", POS)
                     print("counter: ", counter)
                 else:
-                    POS += 1 / STEP_CAL
+                    POS += 1 
                     print("Position__: ", POS)
                     print("counter: ", counter)
                 counter = 0
