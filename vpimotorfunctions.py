@@ -84,9 +84,17 @@ def setCueStartPoint(destination):
 
 
 def moveBy(steps):
-    steps = steps * STEP_CAL
-    global POS
+    
+    print ("Steps: ")
     print (steps)
+    print (" x ")
+    print (STEP_CAL)
+    steps = steps * STEP_CAL
+    print (" = ")
+    print (steps)
+    
+    global POS
+    
     GPIO.output(ENA, ENA_Locked)
     currentFreqency = maxFrequency
 
