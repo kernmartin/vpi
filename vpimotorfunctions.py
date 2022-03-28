@@ -32,10 +32,7 @@ MIN_RPM = 250
 MAX_RPM = 3200
 STEP_CAL = 50
 
-print("-----------------------------------*")
-print("MotorPY started with POS: ", POS)
-print("MotorPY STEP_CAL: ", STEP_CAL)
-print("-----------------------------------*")
+
 
 # Frequenzberechnung
 stepsPerRevolution = 360 / STEP_ANGLE
@@ -46,6 +43,12 @@ maxFrequency = 1 / (MIN_RPM / 60 * stepsPerRevolution)
 rampSlope = (maxFrequency - minFrequency) / RAMP_LENGTH
 
 def calculateStepsDestination(iDestination, iDirection, iOver):
+    
+    print("-----------------------------------*")
+    print("MotorPY started with POS: ", POS)
+    print("MotorPY STEP_CAL: ", STEP_CAL)
+    print("-----------------------------------*")
+    
     steps = 0
     direction = int(iDirection)
     destination = int(iDestination)
@@ -137,11 +140,11 @@ def moveBy(steps):
             elif counter == STEP_CAL:
                 if (steps < 0):
                     POS -= 1 
-                    print("Position: ", POS)
+                    print("Position__: ", POS)
                     print("counter: ", counter)
                 else:
                     POS += 1 / STEP_CAL
-                    print("Position: ", POS)
+                    print("Position__: ", POS)
                     print("counter: ", counter)
                 counter = 0
 
