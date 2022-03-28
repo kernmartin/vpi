@@ -24,4 +24,14 @@ def calculateStepsDestination(destination, direction, over=0)
     if over != 0:
         steps = steps + over * 360
         
-    return steps
+    if direction == 0: 
+        steps = steps * -1
+        
+    moveBy(steps)
+
+
+def setCueStartPoint(destination)
+    steps = 0
+    atob = POS - destination
+    
+        
