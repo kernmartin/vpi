@@ -11,6 +11,7 @@ ENA = 15
 
 # POS
 POS = 0
+BUSY = 0
 
 DIR_Left = GPIO.HIGH
 DIR_Right = GPIO.LOW
@@ -41,6 +42,7 @@ rampSlope = (maxFrequency - minFrequency) / RAMP_LENGTH
 def calculateStepsDestination(iDestination, iDirection, iOver):
     steps = 0
     global POS
+    global BUSY
     direction = int(iDirection)
     destination = int(iDestination)
     over = int(iOver)
@@ -73,7 +75,11 @@ def calculateStepsDestination(iDestination, iDirection, iOver):
         steps = steps * -1
     print("line 67 - STEPS: ")
     print(steps)
-    return moveBy(steps)
+    
+    if BUSY == 0:
+        moveBy(steps)
+    else:
+        print("Motor is Busy")
 
 def setCueStartPoint(destination):
     steps = 0
@@ -84,7 +90,8 @@ def setCueStartPoint(destination):
 
 
 def moveBy(steps):
-
+    global BUSY
+    BUSY = 1
     print ("Steps: ")
     print (steps)
     print (" x ")
@@ -136,3 +143,4 @@ def moveBy(steps):
                 currentFreqency += rampSlope
 
     GPIO.output(ENA, ENA_Released)
+    BUSY = 0
