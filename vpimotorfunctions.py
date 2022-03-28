@@ -7,7 +7,7 @@ def calculateStepsDestination(destination, direction, over=0)
         if destination > POS:
             steps = destination - POS
         elif destination < POS
-            steps = 360 + POS - destination 
+            steps = 360 - POS + destination 
         elif destination == POS
             steps = 0
             
