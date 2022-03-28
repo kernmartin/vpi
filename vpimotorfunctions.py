@@ -159,6 +159,6 @@ def stopMotor():
     global BUSY
     STOP = 1
     print("Motor stopped at Position: ", POS)
-    time.sleep(0.2)
+    time.sleep(1)
     BUSY = 0
     STOP = 0
