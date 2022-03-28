@@ -33,7 +33,6 @@ MAX_RPM = 3200
 STEP_CAL = 50
 
 
-
 # Frequenzberechnung
 stepsPerRevolution = 360 / STEP_ANGLE
 
@@ -44,8 +43,6 @@ rampSlope = (maxFrequency - minFrequency) / RAMP_LENGTH
 
 def calculateStepsDestination(iDestination, iDirection, iOver):
     
-    
-    
     steps = 0
     direction = int(iDirection)
     destination = int(iDestination)
@@ -53,11 +50,6 @@ def calculateStepsDestination(iDestination, iDirection, iOver):
     global POS
     global STOP
     global BUSY
-    
-    print("-----------------------------------*")
-    print("MotorPY started with POS: ", POS)
-    print("MotorPY STEP_CAL: ", STEP_CAL)
-    print("-----------------------------------*")
     
     if BUSY == 1:
         stopMotor()
