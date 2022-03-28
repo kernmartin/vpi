@@ -41,7 +41,7 @@ def gotocue(destination, direction, over):
 @app.route('/steps/<steps>')
 def steps(steps):
     motor.moveBy(int(steps))
-    
+    return redirect(url_for('index'))
 
 @app.route('/updatefile/<thefile>/<steps>')
 def updatefile(thefile, steps):
