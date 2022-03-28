@@ -11,7 +11,6 @@ ENA = 15
 
 # POS
 POS = 0
-steps = 0
 
 DIR_Left = GPIO.HIGH
 DIR_Right = GPIO.LOW
