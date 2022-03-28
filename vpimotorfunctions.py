@@ -49,6 +49,7 @@ def calculateStepsDestination(iDestination, iDirection, iOver):
     if BUSY == 1:
         stopMotor()
         STOP = 0
+        BUSY = 0
         
     
     direction = int(iDirection)
@@ -159,6 +160,3 @@ def stopMotor():
     global BUSY
     STOP = 1
     print("Motor stopped at Position: ", POS)
-    time.sleep(1)
-    BUSY = 0
-    STOP = 0
