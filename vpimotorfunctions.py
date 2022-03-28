@@ -135,10 +135,10 @@ def moveBy(steps):
             
             
             if (steps < 0):
-                POS -= DEGREE_STEP 
+                POS -= 1 / STEP_CAL 
                 print("Position: ", POS)
             else:
-                POS -= DEGREE_STEP  
+                POS += 1 / STEP_CAL 
                 print("Position: ", POS)
                 
                 
