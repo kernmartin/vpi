@@ -138,9 +138,11 @@ def moveBy(steps):
                 if (steps < 0):
                     POS -= 1 
                     print("Position: ", POS)
+                    print("counter: ", counter)
                 else:
                     POS += 1 / STEP_CAL
                     print("Position: ", POS)
+                    print("counter: ", counter)
                 counter = 0
 
             # Rampensteigung auf aktuelle Frequenz anwenden
