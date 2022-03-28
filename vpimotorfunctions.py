@@ -40,6 +40,7 @@ maxFrequency = 1 / (MIN_RPM / 60 * stepsPerRevolution)
 rampSlope = (maxFrequency - minFrequency) / RAMP_LENGTH
 
 def calculateStepsDestination(destination, direction, over):
+    steps = 0
     if direction == 1:
         #CW
         if destination > POS:
