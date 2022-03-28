@@ -48,6 +48,7 @@ def calculateStepsDestination(iDestination, iDirection, iOver):
     
     if BUSY == 1:
         stopMotor()
+        STOP = 0
         
     
     direction = int(iDirection)
