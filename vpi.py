@@ -36,7 +36,7 @@ def readfile(thefile):
 @app.route('/gotocue/<destination>/<direction>/<over>')
 def gotocue(destination, direction, over):
     motor.calculateStepsDestination(destination, direction, over)
-    return render_template("cuemode.html")
+    return redirect(url_for('index'))
 
 @app.route('/updatefile/<thefile>/<steps>')
 def updatefile(thefile, steps):
