@@ -40,6 +40,7 @@ rampSlope = (maxFrequency - minFrequency) / RAMP_LENGTH
 
 def calculateStepsDestination(destination, direction, over):
     steps = 0
+    direction = int(direction)
     if direction == 1:
         #CW
         print("Direciton is 1")
