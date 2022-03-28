@@ -106,8 +106,9 @@ def setCueStartPoint(destination):
         calculateStepsDestination(destination, 1, 0)
 
 
-def moveBy(steps):
+def moveBy(iSteps):
     print("moveBY DEGREE incoming: ", steps)
+    steps = int(iSteps)
     global BUSY
     global POS
     global STOP
@@ -115,6 +116,7 @@ def moveBy(steps):
     #steps = int(steps * 8.89 * 180)
     #steps = 200 * 16 * 180
     print("HARDCODED STEPS ", steps)
+    
     counter = 0
 
     GPIO.output(ENA, ENA_Locked)
