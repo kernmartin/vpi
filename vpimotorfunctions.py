@@ -30,8 +30,9 @@ STEP_ANGLE = 1.8 # degree
 RAMP_LENGTH = 600 # steps
 MIN_RPM = 250
 MAX_RPM = 3200
-STEP_CAL = 3200
-DEGREE_STEP = STEP_CAL / 360      
+STEP_CAL = 3200 * 180
+DEGREE_STEP = STEP_CAL / 360  
+WORM_GEAR = 180    
 # STEPS 3200 pro 360 
 # Frequenzberechnung
 stepsPerRevolution = 3200
