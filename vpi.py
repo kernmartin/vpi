@@ -1,5 +1,6 @@
 from flask import *
 from pythonosc.udp_client import SimpleUDPClient
+import vpimotorfunctions as motor
 import os, os.path, glob, requests, shutil, sys
 app = Flask(__name__)
 app.config.update(
@@ -38,6 +39,11 @@ def readfile(thefile):
     msgl = Lines[int(filenr)]
 
     return render_template('edit.html', msg=msgl, txtfile=filenr)
+
+@app.route('/gotocue/<destination>/<direction>/<over>')
+def gotocue(destination, direction, over)
+    motor.calculateStepsDestination(destination, direction, over) 
+    return render_template("cuemode.html")
 
 @app.route('/updatefile/<thefile>/<steps>')
 def updatefile(thefile, steps):
