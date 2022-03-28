@@ -42,6 +42,7 @@ def calculateStepsDestination(destination, direction, over):
     steps = 0
     if direction == 1:
         #CW
+        print("Direciton is 1")
         if destination > POS:
             steps = destination - POS
         elif destination < POS:
@@ -51,6 +52,7 @@ def calculateStepsDestination(destination, direction, over):
 
     elif direction == 0:
         # CCW
+        print("Direciton is 0")
         if destination > POS:
             steps = 360 - destination + POS
         elif destination < POS:
