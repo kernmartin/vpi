@@ -37,14 +37,14 @@
         <h4>Current Value: {{msg}}</h4>
         <input type="hidden" value="{{msg}}" id="txtval">
 
-        <label>Speed: 1 - 9</label>
+        <label>Speed:</label>
         <input type="number"
                value=""
                id="fS"
                name="speed"
                class="large"
-               min="1" max="9"
-               placeholder="speed 1-9">
+               min="1" max="998"
+               placeholder="speed">
 
         <label>Direction: CW / CCW</label>
         <select name=""
@@ -60,14 +60,14 @@
         </select>
 
 
-        <label>Angle: 0 to 360</label>
+        <label>Angle:</label>
         <input type="number"
                value=""
                id="fA"
                name="angle"
                class="large"
-               min="0" max="360"
-               placeholder="Angle 0-360">
+               min="0" max="1080"
+               placeholder="Angle">
 
                <input type="hidden" value="{{txtfile}}" disabled id="fF">
 
