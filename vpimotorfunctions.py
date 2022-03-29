@@ -140,10 +140,10 @@ def moveBy(steps):
             # aktuelle Schrittposition mitzählen
             if (steps < 0):
                 POS -= 1
-                print("Position: ", POS)
+                #print("Position: ", POS)
             else:
                 POS += 1
-                print("Position: ", POS)
+                #print("Position: ", POS)
 
 
             # Rampensteigung auf aktuelle Frequenz anwenden
