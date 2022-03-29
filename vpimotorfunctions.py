@@ -147,17 +147,17 @@ def moveBy(steps):
 
 
             # Rampensteigung auf aktuelle Frequenz anwenden
-            #if (abs(steps) > 2 * RAMP_LENGTH):
-                #if (i < RAMP_LENGTH):
-                    #currentFreqency -= rampSlope
-                #else:
-                    #if (i > abs(steps) - RAMP_LENGTH):
-                        #currentFreqency += rampSlope
-            #else:
-                #if (i < abs(steps) / 2):
-                    #currentFreqency -= rampSlope
-                #else:
-                    #currentFreqency += rampSlope
+            if (abs(steps) > 2 * RAMP_LENGTH):
+                if (i < RAMP_LENGTH):
+                    currentFreqency -= rampSlope
+                else:
+                    if (i > abs(steps) - RAMP_LENGTH):
+                        currentFreqency += rampSlope
+            else:
+                if (i < abs(steps) / 2):
+                    currentFreqency -= rampSlope
+                else:
+                    currentFreqency += rampSlope
 
     GPIO.output(ENA, ENA_Released)
     #POS = round(POS)
