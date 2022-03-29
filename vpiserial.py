@@ -10,11 +10,8 @@ if __name__ == '__main__':
     print("HELLO SLEEP")
     time.sleep(5)
     ser.write(str("1001180\n").encode('utf-8'))
-    time.sleep(5)
-    sys.exit()
-
+    
     while True:
         line = ser.readline().decode('utf-8').rstrip()
         print(line)
-        time.sleep(1)
-        einmal = einmal + 1
+        time.sleep(1/10)
