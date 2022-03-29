@@ -7,6 +7,6 @@ if __name__ == '__main__':
     ser.write(b"1001180\n")
     while True:
         line = ser.readline().decode('utf-8').rstrip()
-        if(line == "done")
+        if(line == "done"):
             print("done")
         time.sleep(1)
