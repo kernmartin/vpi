@@ -23,10 +23,10 @@ def cuemode():
 
 @app.route("/arduino/<degree>")
 def arduino(degree):
-    if __name__ == '__main__':
-        time.sleep(1)
-        sendCmd = "{}\n".format(degree)
-        ser.write(str(sendCmd).encode('utf-8'))
+  if __name__ == '__main__':
+    time.sleep(1)
+    sendCmd = "{}\n".format(degree)
+    ser.write(str(sendCmd).encode('utf-8'))
   return render_template("cuemode.html")
 
 @app.route("/cueeditmode")
