@@ -42,9 +42,9 @@ $( document ).ready(function() {
     if($('body').hasClass( "edit" )){
 
       var txtval = $("#txtval").val();
-      var s = txtval.substring(1, 2);
-      var d = txtval.substring(3, 4);
-      var a = txtval.substring(5, 8);
+      var s = txtval.substring(1, 3);
+      var d = txtval.substring(4, 5);
+      var a = txtval.substring(6, 8);
 
       $("#fS").val(s);
       $("#fD").val(d);
@@ -61,17 +61,17 @@ $( document ).ready(function() {
           var ff = $("#fF").val();
 
           var error = 3;
-          if(ss >= 1 && ss <= 9){
+          if(ss >= 1 && ss <= 998){
             console.log("speed: " + ss);
             error--;
           }
 
-          if(dd >= 1 && dd <= 9){
+          if(dd >= 0 && dd <= 1 ){
             console.log("dir: " + dd);
             error--;
           }
 
-          if(aa >= 0 && aa <= 360){
+          if(aa >= 0 && aa <= 1080){
             console.log("angle: " + aa);
             error--;
           }
