@@ -29,14 +29,22 @@ GPIO.setup(ENA, GPIO.OUT)
 
 # Motor Setup
 STEP_ANGLE = 1.8 # degree
-RAMP_LENGTH = 600 # steps
-MIN_RPM = 250
-MAX_RPM = 3200
+RAMP_LENGTH = 300 # steps
+MIN_RPM = 150
+MAX_RPM = 250
 STEP_CAL = 3200 * 180
+<<<<<<< HEAD
 DEGREE_STEP = STEP_CAL / 360  
 WORM_GEAR = 90   
 # WORM 180 * 3200  
 # STEPS 3200 pro 360 
+=======
+DEGREE_STEP = STEP_CAL / 360
+WORM_GEAR = 180
+STEPS_REV = 288500
+# WORM 180 * 3200
+# STEPS 3200 pro 360
+>>>>>>> 40a36568c8416c2bb930162512b49641d8a1010c
 # Frequenzberechnung
 stepsPerRevolution = 3200
 
@@ -45,10 +53,15 @@ maxFrequency = 1 / (MIN_RPM / 60 * stepsPerRevolution)
 
 rampSlope = (maxFrequency - minFrequency) / RAMP_LENGTH
 
+<<<<<<< HEAD
 print("STATUS: 2022 03 29 - 13:20")
     
+=======
+
+
+>>>>>>> 40a36568c8416c2bb930162512b49641d8a1010c
 def calculateStepsDestination(iDestination, iDirection, iOver):
-    
+
     steps = 0
     direction = int(iDirection)
     destination = int(iDestination)
@@ -56,14 +69,14 @@ def calculateStepsDestination(iDestination, iDirection, iOver):
     global POS
     global STOP
     global BUSY
-    
+
     print("STARTING AT ", POS, " GOING TO: ", destination)
-    
+
     if BUSY == 1:
         stopMotor()
         STOP = 0
         BUSY = 0
-        
+
     if direction == 1:
         #CW
         print("Direction is 1 CW")
@@ -96,11 +109,8 @@ def calculateStepsDestination(iDestination, iDirection, iOver):
 
     if direction == 0:
         steps = steps * -1
-    
+
     moveBy(int(steps))
-    
-
-
 
 def setCueStartPoint(destination):
     steps = 0
@@ -117,7 +127,7 @@ def moveBy(steps):
     global STOP
     BUSY = 1
     print("HARDCODED STEPS ", steps)
-    
+
     counter = 0
 
     GPIO.output(ENA, ENA_Locked)
@@ -139,32 +149,32 @@ def moveBy(steps):
 
             # aktuelle Schrittposition mitzählen
             if (steps < 0):
-                POS -= 1 
+                POS -= 1
                 print("Position: ", POS)
             else:
-                POS += 1 
+                POS += 1
                 print("Position: ", POS)
-                
+
 
             # Rampensteigung auf aktuelle Frequenz anwenden
-            #if (abs(steps) > 2 * RAMP_LENGTH):
-                #if (i < RAMP_LENGTH):
-                    #currentFreqency -= rampSlope
-                #else:
-                    #if (i > abs(steps) - RAMP_LENGTH):
-                        #currentFreqency += rampSlope
-            #else:
-                #if (i < abs(steps) / 2):
-                    #currentFreqency -= rampSlope
-                #else:
-                    #currentFreqency += rampSlope
+            if (abs(steps) > 2 * RAMP_LENGTH):
+                if (i < RAMP_LENGTH):
+                    currentFreqency -= rampSlope
+                else:
+                    if (i > abs(steps) - RAMP_LENGTH):
+                        currentFreqency += rampSlope
+            else:
+                if (i < abs(steps) / 2):
+                    currentFreqency -= rampSlope
+                else:
+                    currentFreqency += rampSlope
 
     GPIO.output(ENA, ENA_Released)
     POS = round(POS)
     BUSY = 0
     STOP = 0
     print("Finished at POS: ", POS)
-    
+
 def stopMotor():
     print("def StopMotor: ")
     global STOP
@@ -173,6 +183,3 @@ def stopMotor():
     STOP = 1
     POS = round(POS)
     print("Motor stopped at Position: ", POS)
-    
-    
-    
