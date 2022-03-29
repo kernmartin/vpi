@@ -29,9 +29,9 @@ GPIO.setup(ENA, GPIO.OUT)
 
 # Motor Setup
 STEP_ANGLE = 1.8 # degree
-RAMP_LENGTH = 200 # steps
-MIN_RPM = 50
-MAX_RPM = 150
+RAMP_LENGTH = 8000 # steps
+MIN_RPM = 180
+MAX_RPM = 320
 STEP_CAL = 3200 * 90
 
 DEGREE_STEP = STEP_CAL / 360
