@@ -138,26 +138,26 @@ def moveBy(steps):
             time.sleep(minFrequency)
 
             # aktuelle Schrittposition mitzählen
-            #if (steps < 0):
-                #POS -= 1
+            if (steps < 0):
+                POS -= 1
                 #print("Position: ", POS)
-            #else:
-                #POS += 1
+            else:
+                POS += 1
                 #print("Position: ", POS)
 
 
             # Rampensteigung auf aktuelle Frequenz anwenden
-            #if (abs(steps) > 2 * RAMP_LENGTH):
-                #if (i < RAMP_LENGTH):
-                    #currentFreqency -= rampSlope
-                #else:
-                    #if (i > abs(steps) - RAMP_LENGTH):
-                        #currentFreqency += rampSlope
-            #else:
-                #if (i < abs(steps) / 2):
-                    #currentFreqency -= rampSlope
-                #else:
-                    #currentFreqency += rampSlope
+            if (abs(steps) > 2 * RAMP_LENGTH):
+                if (i < RAMP_LENGTH):
+                    currentFreqency -= rampSlope
+                else:
+                    if (i > abs(steps) - RAMP_LENGTH):
+                        currentFreqency += rampSlope
+            else:
+                if (i < abs(steps) / 2):
+                    currentFreqency -= rampSlope
+                else:
+                    currentFreqency += rampSlope
 
     GPIO.output(ENA, ENA_Released)
     #POS = round(POS)
