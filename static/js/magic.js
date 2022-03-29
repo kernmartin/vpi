@@ -82,7 +82,7 @@ $( document ).ready(function() {
             console.log("ll: " + aal);
             if(aal == 1){ aa = "00" + aa; }
             if(aal == 2){ aa = "0" + aa; }
-            var steps = "s"+ss+"d"+dd+"a"+aa;
+            var steps = ss+dd+aa;
             console.log("steps: " + steps);
             console.log()
             window.location.href = '/updatefile/' + ff + '/' + steps;
