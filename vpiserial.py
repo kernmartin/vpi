@@ -9,7 +9,7 @@ if __name__ == '__main__':
     einmal = 0
     print("HELLO SLEEP")
     time.sleep(5)
-    ser.write(str("1001001\n").encode('utf-8'))
+    ser.write(str("1001180\n").encode('utf-8'))
     time.sleep(5)
     sys.exit()
 
