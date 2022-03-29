@@ -7,7 +7,11 @@ if __name__ == '__main__':
     ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
     ser.reset_input_buffer()
     einmal = 0
+    print("HELLO SLEEP")
+    time.sleep(5)
     ser.write(str("1001001\n").encode('utf-8'))
+    time.sleep(5)
+    sys.exit()
     while True:
 
         einmal = einmal + 1
@@ -16,4 +20,3 @@ if __name__ == '__main__':
         time.sleep(1)
         einmal = einmal + 1
         if(einmal == 100):
-            sys.exit()
