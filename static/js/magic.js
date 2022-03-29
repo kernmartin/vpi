@@ -34,7 +34,7 @@ $( document ).ready(function() {
     $('body').on('click', '.gB', function(e){
       e.preventDefault();
       var gotoVal = $(this).attr('href');
-      $.get( "/move/" + gotoVal );
+      $.get( "/arduino/" + gotoVal );
     });
 
 
