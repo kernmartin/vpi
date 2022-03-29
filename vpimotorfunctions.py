@@ -132,10 +132,10 @@ def moveBy(steps):
 
             # Schritt ausführen
             GPIO.output(PUL, GPIO.HIGH)
-            #time.sleep(minFrequency)
+            time.sleep(minFrequency)
 
             GPIO.output(PUL, GPIO.LOW)
-            #time.sleep(minFrequency)
+            time.sleep(minFrequency)
 
             # aktuelle Schrittposition mitzählen
             #if (steps < 0):
