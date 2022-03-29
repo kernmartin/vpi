@@ -10,6 +10,5 @@ if __name__ == '__main__':
             ser.write(str("1001180\n").encode('utf-8'))
             einmal = einmal + 1
         line = ser.readline().decode('utf-8').rstrip()
-        if(line == "done"):
-            print("done")
+        print(line)
         time.sleep(1)
