@@ -138,11 +138,11 @@ def moveBy(steps):
             time.sleep(minFrequency)
 
             # aktuelle Schrittposition mitzählen
-            if (steps < 0):
-                POS -= 1
+            #if (steps < 0):
+                #POS -= 1
                 #print("Position: ", POS)
-            else:
-                POS += 1
+            #else:
+                #POS += 1
                 #print("Position: ", POS)
 
 
@@ -160,10 +160,10 @@ def moveBy(steps):
                     #currentFreqency += rampSlope
 
     GPIO.output(ENA, ENA_Released)
-    POS = round(POS)
+    #POS = round(POS)
     BUSY = 0
     STOP = 0
-    print("Finished at POS: ", POS)
+    #print("Finished at POS: ", POS)
 
 def stopMotor():
     print("def StopMotor: ")
