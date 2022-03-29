@@ -1,11 +1,17 @@
 from flask import *
 import vpimotorfunctions as motor
 import os, os.path, glob, requests, shutil, sys
+import serial
+import time
+
 app = Flask(__name__)
 app.config.update(
     DEBUG=True,
     TEMPLATES_AUTO_RELOAD=True,
 )
+
+ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
+ser.reset_input_buffer()
 
 @app.route("/")
 def index():
@@ -13,6 +19,13 @@ def index():
 
 @app.route("/cuemode")
 def cuemode():
+  return render_template("cuemode.html")
+
+@app.route("/arduino/<degree>")
+def arduino(degree):
+  if __name__ == '__main__':
+    sendCmd = "{}\n".format(degree)
+    ser.write(str(sendCmd).encode('utf-8'))
   return render_template("cuemode.html")
 
 @app.route("/cueeditmode")
@@ -36,17 +49,17 @@ def readfile(thefile):
 def gotocue(destination, direction, over):
     motor.calculateStepsDestination(destination, direction, over)
     return redirect(url_for('index'))
-    
+
 @app.route('/stop')
 def stopMotor():
     motor.stopMotor()
     return redirect(url_for('index'))
-    
+
 @app.route('/otherdriver')
 def otherdriver():
     motor.otherDriver()
     return redirect(url_for('index'))
-    
+
 @app.route('/steps/<steps>')
 def steps(steps):
     motor.moveBy(int(steps))
