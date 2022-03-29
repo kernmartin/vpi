@@ -33,18 +33,12 @@ RAMP_LENGTH = 300 # steps
 MIN_RPM = 150
 MAX_RPM = 250
 STEP_CAL = 3200 * 180
-<<<<<<< HEAD
-DEGREE_STEP = STEP_CAL / 360  
-WORM_GEAR = 90   
-# WORM 180 * 3200  
-# STEPS 3200 pro 360 
-=======
+
 DEGREE_STEP = STEP_CAL / 360
 WORM_GEAR = 180
 STEPS_REV = 288500
 # WORM 180 * 3200
 # STEPS 3200 pro 360
->>>>>>> 40a36568c8416c2bb930162512b49641d8a1010c
 # Frequenzberechnung
 stepsPerRevolution = 3200
 
@@ -53,13 +47,9 @@ maxFrequency = 1 / (MIN_RPM / 60 * stepsPerRevolution)
 
 rampSlope = (maxFrequency - minFrequency) / RAMP_LENGTH
 
-<<<<<<< HEAD
+
 print("STATUS: 2022 03 29 - 13:20")
     
-=======
-
-
->>>>>>> 40a36568c8416c2bb930162512b49641d8a1010c
 def calculateStepsDestination(iDestination, iDirection, iOver):
 
     steps = 0
