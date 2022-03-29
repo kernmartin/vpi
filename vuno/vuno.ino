@@ -1,6 +1,13 @@
-void setup() {
-  // put your setup code here, to run once:
+#define pulPin 2
+#define dirPin 3
+#define enaPin 4
 
+
+void setup() {
+  pinMode(pulPin, OUTPUT);
+  pinMode(dirPin, OUTPUT);
+  pinMode(enaPin, OUTPUT);
+  digitalWrite(enaPin, LOW);
 }
 
 void loop() {
