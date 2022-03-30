@@ -57,6 +57,14 @@ $( document ).ready(function() {
         }
       }
 
+      $("#fM").change(function(){
+        if($("#fM").val() == "L"){
+          hideFields("L");
+        }else{
+          hideFields("D");
+        }
+      });
+
 
 
       $("#btnUpdate").click(function(e){
