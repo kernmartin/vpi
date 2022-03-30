@@ -15,7 +15,7 @@ $(function() {
   });
 
 
-  ('.keyboardNum').keyboard({
+  $('.keyboardNum').keyboard({
     usePreview: true,
     customLayout: {
       'normal': [
