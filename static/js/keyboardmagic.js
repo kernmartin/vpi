@@ -3,6 +3,7 @@ $(function() {
 
   $('.keyboard').keyboard({
     usePreview: true,
+    layout: 'custom',
     customLayout: {
       'normal': [
         '1 2 3 4 5 6 7 8 9 0 - {bksp}',
@@ -16,6 +17,7 @@ $(function() {
 
 
   $('.keyboardNum').keyboard({
+    layout: 'custom',
     usePreview: true,
     customLayout: {
       'normal': [

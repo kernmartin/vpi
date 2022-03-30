@@ -147,3 +147,31 @@
 </html>
 
 <script src="../static/js/keyboardmagic.js"></script>
+
+<style>
+  .ui-keyboard span {
+    font-size: calc(2em - 1vw);
+  }
+  .ui-keyboard-button {
+    height: calc(2em - 1vh);
+    line-height: calc(2em - 1vh);
+    min-width: calc(2em - 5vw);
+    margin: .2em;
+    cursor: pointer;
+  }
+  /* increased specificity to override repositioning style */
+  div.ui-keyboard button.ui-keyboard-button.ui-keyboard-actionkey > span {
+    position: static;
+    font-size: calc(.5em + 1vw);
+  }
+
+  body {
+    margin-top: 10px;
+  }
+
+  #wrap {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+  }
+</style>
