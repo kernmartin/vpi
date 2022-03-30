@@ -81,12 +81,15 @@ function loadCues(){
         var btntxt = lines[line].split(':');
         console.log("Button: " + btntxt);
         //console.log(lines[line]);
-        newB += '<div><a href="';
-        newB += btntxt[0] + '" ';
-        newB += 'class="gB btn uk-button uk-button-secondary uk-button-large uk-width-1-1">';
-        newB += btntxt[1];
-        newB += '</a></div>';
-        //$( newB  ).appendTo( "#loadCues" );
+        if(lines[line] != ""){
+          newB += '<div><a href="';
+          newB += btntxt[1] + '" ';
+          newB += 'class="gB btn uk-button uk-button-secondary uk-button-large uk-width-1-1">';
+          newB += btntxt[0];
+          newB += '</a></div>';
+        }
+
+
 
       }
 
