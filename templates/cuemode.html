@@ -81,15 +81,26 @@ function loadCues(){
         var btntxt = lines[line].split(':');
 
         if(lines[line] != ""){
-          newB += '<div><a href="';
 
-          btntxtTrim = btntxt[1].replace(/^\s+|\s+$/gm,'');
+
+          var btntxtTrim = btntxt[1].replace(/^\s+|\s+$/gm,'');
+          var modus = btntxtTrim.substring(0, 1);
+
+
+          newB += '<div><a href="';
           newB += btntxtTrim+'" ';
-          newB += 'class="gB btn uk-button uk-button-secondary uk-button-large uk-width-1-1">';
+          newB += 'class="gB ';
+
+          if(modus == "L"){
+            newB += 'class=" lMode ';
+          }
+
+
+          newB += ' btn uk-button uk-button-secondary uk-button-large uk-width-1-1">';
           newB += btntxt[0];
           newB += '</a></div>';
         }
-        
+
 
         ct++;
       }
@@ -113,3 +124,8 @@ function loadCues(){
 
 }); // END JQ
 </script>
+<style>
+  .lMode{
+    opacity: 0.5;
+  }
+</style>
