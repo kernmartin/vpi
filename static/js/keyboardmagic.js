@@ -383,8 +383,8 @@ $(function() {
     });
   });
 
-  $('#fS').focus(function() {
-    alert("focus " + this );
+  $('#fN').focus(function() {
+    alert("focus ");
     var kb = $('#fS').getkeyboard();
     // typeIn( text, delay, callback );
     kb.reveal().typeIn(simulateTyping, 500, function() {
