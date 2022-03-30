@@ -384,6 +384,7 @@ $(function() {
   });
 
   $('#fS').focus(function() {
+    alert("focus " + this );
     var kb = $('#fS').getkeyboard();
     // typeIn( text, delay, callback );
     kb.reveal().typeIn(simulateTyping, 500, function() {
