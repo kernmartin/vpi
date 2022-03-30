@@ -122,7 +122,7 @@ button.ui-keyboard-accept.ui-keyboard-invalid-input:not([disabled]):hover {
 /*** Caret extension definition ***/
 /* margin-top => is added to the caret height (top & bottom) */
 .ui-keyboard-caret {
-	background: #c00;
+	background: white;
 	width: 1px;
 	margin-top: 3px;
 }
