@@ -1,35 +1,5 @@
-
-/*function test(){
-
-  var obj;
-
-  fetch('static/1.txt')
-    .then(response => response.text())
-    .then(data => obj = data);
-    // outputs the content of the text file
-    console.log(obj);
-}
-
-*/
-
-
-
 $( document ).ready(function() {
-    console.log( "ready!" );
-    /*
-    $(".gB").click(function(e){
-      e.preventDefault();
-      var gotoVal = $(this).attr('href');
-      $.get( "/move/" + gotoVal );
-    });
-
-
-    $(".gB").live('click', function(e){
-      e.preventDefault();
-      var gotoVal = $(this).attr('href');
-      $.get( "/move/" + gotoVal );
-    });
-    */
+    console.log( "Welcome to the machine!" );
 
     $('body').on('click', '.gB', function(e){
       e.preventDefault();
@@ -42,16 +12,18 @@ $( document ).ready(function() {
     if($('body').hasClass( "edit" )){
 
       var txtval = $("#txtval").val();
+      var parts = txtval.split(':');
+      var name = parts[0].trim();
+      var txtval = parts[1].trim();
+      console.log(textval + " " + name);
       var s = txtval.substring(1, 3);
       var d = txtval.substring(4, 5);
       var a = txtval.substring(6, 8);
 
       $("#fS").val(s);
+      $("#fS").val(s);
       $("#fD").val(d);
       $("#fA").val(a);
-
-      console.log(a);
-      //('00' + s).slice(-3)  // '004'
 
       $("#btnUpdate").click(function(e){
 
