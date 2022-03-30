@@ -79,8 +79,8 @@ void serialEvent() {
       
     }else if(data.length() == 4){
       // GO TO LOCATION MSG: "L090"
-        speed = 50;
-        final = data.substring(4, 7).toInt();
+        speed = 20;
+        final = data.substring(1, 3).toInt();
         
         // Which one is shorter CCW or CW
         if((final - pos) <= (360 - final + pos)){
@@ -88,39 +88,27 @@ void serialEvent() {
           final = final - pos;
         }else{
           dir == 0;
-          final = 360 - final - pos;
+          final = 360 - final + pos;
         }
-      
-      
       
     }else if(data.lenght() == 9){
       // RUN DEGREES: D + SPEED ### + DIR # + DEGREE #### = "D10010180"
       speed = data.substring(1, 4).toInt();
       dir = data.substring(4, 5).toInt();
       final = data.substring(5, 9).toInt();
-      
     }
-    
 
     if(dir == 1){
       digitalWrite(dirPin, HIGH);
-      }else{
+      } else {
       digitalWrite(dirPin, LOW);
     }
 
     final = final * stepsPerDegree;
     running = true;
 
-    if(speed == 0){
-      digitalWrite(enaPin, HIGH);
-      steps = 0;
-      final = 0;
-    }else if(speed == 999){
-      pos = 0;
-    }else{
-        digitalWrite(enaPin, LOW);
-        delay(250);
-    }
-
-}
+    digitalWrite(enaPin, LOW);
+    delay(250);
+    
+  }
 }
