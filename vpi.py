@@ -82,4 +82,4 @@ def updatefile(thefile, steps):
     return redirect(url_for('cueeditmode'))
 
 if __name__ == "__main__":
-  app.run(host='0.0.0.0')
+  app.run(host='localhost')
