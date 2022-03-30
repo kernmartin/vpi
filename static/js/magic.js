@@ -15,15 +15,49 @@ $( document ).ready(function() {
       var parts = txtval.split(':');
       var name = parts[0].trim();
       txtval = parts[1].trim();
-      console.log(textval + " " + name);
-      var s = txtval.substring(1, 3);
-      var d = txtval.substring(4, 5);
-      var a = txtval.substring(6, 8);
+      var m = txtval.substring(0, 1);
+      var a = 0;
+      var d = 0;
+      var s = 0;
 
-      $("#fS").val(s);
-      $("#fS").val(s);
-      $("#fD").val(d);
-      $("#fA").val(a);
+
+      if(m == "L"){
+        hideFields(m);
+
+        a = txtval.substring(1, 4);
+
+        // Fields Population
+        $("#fN").val(name);
+        $("#fM").val(m);
+        $("#fDP").val(a);
+
+      }
+
+      if(m == "D"){
+        hideFields(m);
+
+        s = txtval.substring(1, 4);
+        d = txtval.substring(5, 6);
+        a = txtval.substring(7, 11);
+
+        $("#fN").val(name);
+        $("#fM").val(m);
+        $("#fS").val(s);
+        $("#fD").val(d);
+        $("#fA").val(a);
+      }
+
+      function hideFields(mode){
+        if(mode == "L"){
+          $(".modeD").hide();
+          $(".modeL").show();
+        }else{
+          $(".modeL").hide();
+          $(".modeD").show();
+        }
+      }
+
+
 
       $("#btnUpdate").click(function(e){
 
