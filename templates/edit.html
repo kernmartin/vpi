@@ -4,9 +4,40 @@
         <title>VPI Web Page</title>
         <link rel="stylesheet" href="/static/css/uikit.css">
         <link rel="stylesheet" href="/static/css/addon.css">
+
+        <link rel="stylesheet" href="static/css/keyboard.css">
+        <link rel="stylesheet" href="static/css/jquery-ui.css">
+
+
+
+
         <script src="/static/js/index.modern.js"></script>
         <script src="/static/js/jquery.min.js"></script>
         <script src="/static/js/magic.js"></script>
+
+        <!-- KEYBOARD -->
+        <script src="static/js/jquery.keyboard.js"></script>
+
+        <script src="static/js/jquery.mousewheel.js"></script>
+        <script src="static/js/jquery.keyboard.extension-typing.js"></script>
+        <script src="static/js/ui.js"></script>
+        <script>
+        /* Code to get jQuery UI to work with jQuery 3.4+ ... */
+            $.isArray = function(a) {
+              return Object.prototype.toString.call(a) === '[object Array]';
+            }
+            $.isFunction = function(f) {
+              return typeof f === 'function';
+            }
+            $.isWindow = function(w) {
+              var toString = Object.prototype.toString.call(w);
+              return toString == '[object global]' ||
+                toString == '[object Window]' ||
+                toString == '[object DOMWindow]';
+            }
+        </script>
+
+
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
 
@@ -36,11 +67,11 @@
         <h3 style="text-transfo">Edit Cue: {{msg}}</h3>
         <h4>Current Value: {{msg}}</h4>
         <input type="hidden" value="{{msg}}" id="txtval">
-        
-        
-        
-        
-        
+
+
+
+
+
         <div class="mode">
         <label>Name:</label>
         <input type="text"
@@ -50,8 +81,8 @@
                class="large"
                placeholder="Name">
         </div>
-        
-        
+
+
         <label>Mode</label>
         <select name=""
                 id="fM"
@@ -80,7 +111,7 @@
           <option value="1">CW</option>
         </select>
         </div>
-        
+
         <div class="modeL">
         <label>Degree Position:</label>
         <input type="number"
@@ -91,8 +122,8 @@
                min="0" max="359"
                placeholder="Degree Position">
         </div>
-        
-        
+
+
         <div class="modeD">
         <label>Degree Rotation:</label>
         <input type="number"
@@ -114,3 +145,5 @@
     </div>
     </body>
 </html>
+
+<script src="static/js/keyboardmagic.js"></script>
