@@ -82,7 +82,9 @@ function loadCues(){
 
         if(lines[line] != ""){
           newB += '<div><a href="';
-          newB += btntxt[1].trim()+'" ';
+
+          btntxtTrim = btntxt[1].replace(/^\s+|\s+$/gm,'');
+          newB += btntxtTrim+'" ';
           newB += 'class="gB btn uk-button uk-button-secondary uk-button-large uk-width-1-1">';
           newB += btntxt[0];
           newB += '</a></div>';
