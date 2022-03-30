@@ -71,18 +71,18 @@ function loadCues(){
   var txt = "";
   let txtSteps = [];
   let newB = "";
-  console.log("HELLO WORLD");
 
     $.get('static/cue.txt', function(data) {
 
       var lines = data.split('\n');
       for(var line = 0; line < lines.length; line++){
-
+        btntxt = lines[line];
+        btntxt.split(':');
         //console.log(lines[line]);
         newB += '<div><a href="';
-        newB += lines[line] + '" ';
+        newB += btntxt[0] + '" ';
         newB += 'class="gB btn uk-button uk-button-secondary uk-button-large uk-width-1-1">';
-        newB += lines[line];
+        newB += btntxt[1];
         newB += '</a></div>';
         //$( newB  ).appendTo( "#loadCues" );
 
