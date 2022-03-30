@@ -36,7 +36,31 @@
         <h3 style="text-transfo">Edit Cue: {{msg}}</h3>
         <h4>Current Value: {{msg}}</h4>
         <input type="hidden" value="{{msg}}" id="txtval">
+        
+        
+        
+        
+        
+        <div class="mode">
+        <label>Name:</label>
+        <input type="text"
+               value=""
+               id="fN"
+               name="cuename"
+               class="large"
+               placeholder="Name">
+        </div>
+        
+        
+        <label>Mode</label>
+        <select name=""
+                id="fM"
+                class="large">
+          <option value="D">Drive</option>
+          <option value="L">Position</option>
+        </select>
 
+        <div class="modeD">
         <label>Speed:</label>
         <input type="number"
                value=""
@@ -44,8 +68,10 @@
                name="speed"
                class="large"
                min="10" max="999"
-               placeholder="speed">
+               placeholder="Speed 1 to 999">
+        </div>
 
+        <div class="modeD">
         <label>Direction: CW / CCW</label>
         <select name=""
                 id="fD"
@@ -53,15 +79,30 @@
           <option value="0">CCW</option>
           <option value="1">CW</option>
         </select>
-
-        <label>Angle:</label>
+        </div>
+        
+        <div class="modeL">
+        <label>Degree Position:</label>
+        <input type="number"
+               value=""
+               id="fDP"
+               name="degree"
+               class="large"
+               min="0" max="359"
+               placeholder="Degree Position">
+        </div>
+        
+        
+        <div class="modeD">
+        <label>Degree Rotation:</label>
         <input type="number"
                value=""
                id="fA"
                name="angle"
                class="large"
                min="0" max="1080"
-               placeholder="Angle">
+               placeholder="Degree">
+        </div>
 
                <input type="hidden" value="{{txtfile}}" disabled id="fF">
 
