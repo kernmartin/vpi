@@ -79,11 +79,10 @@ function loadCues(){
         //var btntxt = trim(lines[line]);
         //console.log("Line: " + lines[line]);
         var btntxt = lines[line].split(':');
-        console.log("Button: " + btntxt);
-        //console.log(lines[line]);
+
         if(lines[line] != ""){
           newB += '<div><a href="';
-          newB += btntxt[1] + '" ';
+          newB += btntxt[1].trim()+'" ';
           newB += 'class="gB btn uk-button uk-button-secondary uk-button-large uk-width-1-1">';
           newB += btntxt[0];
           newB += '</a></div>';
