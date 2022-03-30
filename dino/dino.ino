@@ -10,8 +10,12 @@ long  steps = 0;
 int dir = 0;
 int speed = 50;
 long final = 0;
+long finalTemp = 0;
 int pos = 0;
-
+// Comparings
+int a = 0;
+int b = 0;
+int c = 0;
 
 
 
@@ -21,11 +25,13 @@ void setup() {
   pinMode(dirPin, OUTPUT);
   pinMode(enaPin, OUTPUT);
   digitalWrite(enaPin, HIGH);
+  pos = 0;
 }
 void loop() {
 
   if(final == steps && running == true){
-     Serial.println("DONE");
+     //Serial.println("DONE");
+     //printPos();
      delay(250);
      digitalWrite(enaPin, HIGH);
   }
@@ -43,9 +49,11 @@ void loop() {
         if(dir){
           pos++;
           if(pos >= 360){ pos = 0; }
+          printPos();
         }else{
           pos--;
           if(pos <= 0){ pos = 360; }
+          printPos();
         }
       }
   }
@@ -56,19 +64,21 @@ void motorPulse(){
   delayMicroseconds(speed);
   digitalWrite(stepPin, LOW);
   delayMicroseconds(speed);
+  
 }
 
 void serialEvent() {
    if (Serial.available() > 0 ) {
     String data = Serial.readString();
-    
+    //Serial.print("LENGTH: ");
+    //Serial.println(data.length());
     steps = 0;
     
-    if(data.length() == 1){
-      Serial.println("RECEIVED LINE 68: ");
+    if(data.length() == 2){
       // COMMAND (R = RESET | S = STOP)
+      data = data.substring(0, 1);
       if(data == "S"){
-        Serial.println("RECEIVED S: ");
+        //Serial.println("RECEIVED S: ");
         digitalWrite(enaPin, HIGH);
         steps = 0;
         final = 0;
@@ -76,36 +86,59 @@ void serialEvent() {
       
       if(data == "R"){
         // COMMAND RESET
-        Serial.println("RECEIVED R: ");
+        //Serial.println("RECEIVED R: ");
         pos = 0;
+        printPos();
+      }
+
+      if(data == "P"){
+        // COMMAND RESET
+        printPos();
       }
       
-    }else if(data.length() == 4){
+    }else if(data.length() == 5){
       // GO TO LOCATION MSG: "L090"
         speed = 20;
-        final = data.substring(1, 3).toInt();
-        Serial.print("RECEIVED LINE: ");
-        Serial.println(data);
+        p(data.substring(1, 4).toInt());
         // Which one is shorter CCW or CW
-        if((final - pos) <= (360 - final + pos)){
-          dir == 1;
-          final = final - pos;
-          Serial.print("Final 93: ");
-          Serial.println(final);
-        }else{
-          dir == 0;
-          final = 360 - final + pos;
-          Serial.print("Final 98: ");
-          Serial.println(final);
+        finalTemp = data.substring(1, 4).toInt();
+        
+        
+        if(finalTemp < pos && (pos - finalTemp) <= 180){
+          //CCW
+          p(100);
+          dir = 0;
+          final = pos - finalTemp;
         }
-      
-    }else if(data.length() == 9){
+
+        if(finalTemp < pos && (pos - finalTemp) > 180){
+          //CW
+          p(107);
+          dir = 1;
+          final = abs(finalTemp + (360 - pos));
+          pp("final", final);
+        }
+
+        if(finalTemp > pos && (finalTemp - pos) <= 180){
+          //CW
+          p(114);
+          dir = 1;
+          final = abs(finalTemp - pos);
+        }
+
+        if(finalTemp > pos && (finalTemp - pos) > 180){
+          //CCW
+          p(123);
+          dir = 0;
+          final = abs(pos + (360 - finalTemp));
+        }
+
+
+    }else if(data.length() == 10){
       // RUN DEGREES: D + SPEED ### + DIR # + DEGREE #### = "D10010180"
       speed = data.substring(1, 4).toInt();
       dir = data.substring(4, 5).toInt();
       final = data.substring(5, 9).toInt();
-      Serial.print("RECEIVED LINE 103: ");
-      Serial.println(data);
     }
 
     if(dir == 1){
@@ -121,4 +154,20 @@ void serialEvent() {
     delay(250);
     
   }
+}
+
+
+void printPos(){
+  //Serial.print("Position: ");
+  Serial.println(pos);
+}
+
+void p(int i){
+  //Serial.print("print: ");
+  //Serial.println(i);
+}
+
+void pp(String s, int i){
+  //Serial.print(s);
+  //Serial.println(i);
 }
