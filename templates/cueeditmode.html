@@ -83,6 +83,19 @@ function loadCues(){
         newB += '</a></div>';
         //$( newB  ).appendTo( "#loadCues" );
 
+        newB += '<div><a href="';
+        newB += btntxtTrim+'" ';
+        newB += 'class="';
+
+        if(modus == "L"){
+          newB += ' lMode ';
+        }
+
+
+        newB += ' btn uk-button uk-button-secondary uk-button-large uk-width-1-1">';
+        newB += btntxt[0];
+        newB += '</a></div>';
+
       }
 
       $("#loadCues").html(newB);
@@ -104,3 +117,8 @@ function loadCues(){
 
 }); // END JQ
 </script>
+<style>
+  .lMode{
+    opacity: 0.5;
+  }
+</style>
