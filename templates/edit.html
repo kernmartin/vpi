@@ -17,7 +17,6 @@
 
         <!-- KEYBOARD -->
         <script src="../static/js/jquery.keyboard.js"></script>
-
         <script src="../static/js/jquery.mousewheel.js"></script>
         <script src="../static/js/jquery.keyboard.extension-typing.js"></script>
         <script src="../static/js/ui.js"></script>
@@ -65,25 +64,19 @@
       <div class="uk-container">
       <div class="buttons">
         <h3 style="text-transfo">Edit Cue: {{msg}}</h3>
-        <h4>Current Value: {{msg}}</h4>
+
         <input type="hidden" value="{{msg}}" id="txtval">
-
-
-
-
-
         <div class="mode">
-        <label>Name:</label>
+        <label>NAME:</label>
         <input type="text"
                value=""
                id="fN"
                name="cuename"
                class="large keyboard"
-               placeholder="Name">
         </div>
 
 
-        <label>Mode</label>
+        <label>MODE</label>
         <select name=""
                 id="fM"
                 class="large">
@@ -92,18 +85,17 @@
         </select>
 
         <div class="modeD">
-        <label>Speed:</label>
+        <label>SPEED:</label>
         <input type="text"
                value=""
                id="fS"
                name="speed"
                class="large keyboardNum"
                min="10" max="999"
-               placeholder="Speed 1 to 999">
         </div>
 
         <div class="modeD">
-        <label>Direction: CW / CCW</label>
+        <label>DIR: CW / CCW</label>
         <select name=""
                 id="fD"
                 class="large">
@@ -113,33 +105,31 @@
         </div>
 
         <div class="modeL">
-        <label>Degree Position:</label>
+        <label>DEGREE POS:</label>
         <input type="text"
                value=""
                id="fDP"
                name="degree"
                class="large keyboardNum"
                min="0" max="359"
-               placeholder="Degree Position">
         </div>
 
 
         <div class="modeD">
-        <label>Degree Rotation:</label>
+        <label>DEGREE ROT:</label>
         <input type="text"
                value=""
                id="fA"
                name="angle"
                class="large keyboardNum"
                min="0" max="1080"
-               placeholder="Degree">
         </div>
 
                <input type="hidden" value="{{txtfile}}" disabled id="fF">
 
           <div class="error" id="errorMsg" style="color: blue; padding: 10px; font-size: 20px; line-height: 20px;"></div>
 
-          <button id="btnUpdate">Update</button>
+          <button id="btnUpdate">UPDATE</button>
 
       </div>
     </div>
