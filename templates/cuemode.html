@@ -76,9 +76,9 @@ function loadCues(){
 
       var lines = data.split('\n');
       for(var line = 0; line < lines.length; line++){
-        var btntxt = lines[line];
-        console.log("Line: " + lines[line]);
-        btntxt.split(':');
+        //var btntxt = trim(lines[line]);
+        //console.log("Line: " + lines[line]);
+        var btntxt = trim(lines[line]).split(':');
         console.log("Button: " + btntxt);
         //console.log(lines[line]);
         newB += '<div><a href="';
