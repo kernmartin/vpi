@@ -71,7 +71,7 @@ function loadCues(){
   let txtSteps = [];
   let newB = "";
 
-    $.get('static/cue.txt', function(data) {
+    $.get('../static/cue.txt', function(data) {
 
       var lines = data.split('\n');
       for(var line = 0; line < lines.length; line++){
