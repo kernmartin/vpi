@@ -14,7 +14,7 @@ $( document ).ready(function() {
       var txtval = $("#txtval").val();
       var parts = txtval.split(':');
       var name = parts[0].trim();
-      var txtval = parts[1].trim();
+      txtval = parts[1].trim();
       console.log(textval + " " + name);
       var s = txtval.substring(1, 3);
       var d = txtval.substring(4, 5);
