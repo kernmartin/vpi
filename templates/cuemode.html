@@ -73,7 +73,7 @@ function loadCues(){
   let newB = "";
 
     $.get('static/cue.txt', function(data) {
-
+      var ct = 0;
       var lines = data.split('\n');
       for(var line = 0; line < lines.length; line++){
         //var btntxt = trim(lines[line]);
@@ -88,9 +88,11 @@ function loadCues(){
           newB += btntxt[0];
           newB += '</a></div>';
         }
+        if(ct % 2){
+          newB += "<hr>";
+        }
 
-
-
+        ct++;
       }
 
       $("#loadCues").html(newB);
