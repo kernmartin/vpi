@@ -76,7 +76,7 @@ $( document ).ready(function() {
           var aa = $("#fA").val();
           var fdp = $("#fDP").val();
           var ff = $("#fF").val();
-          var
+      
 
 
           if(mm == "L"){
