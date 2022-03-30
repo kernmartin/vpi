@@ -76,14 +76,14 @@ $( document ).ready(function() {
           var aa = $("#fA").val();
           var fdp = $("#fDP").val();
           var ff = $("#fF").val();
-      
+
 
 
           if(mm == "L"){
             var fdpl = fdp.length;
             if(fdpl == 1){ fdp = "00" + fdp; }
             if(fdpl == 2){ fdp = "0" + fdp; }
-            var sendMsg = "L"+fdp;
+            var sendMsg = nn+":L"+fdp;
             window.location.href = '/updatefile/' + ff + '/' + sendMsg;
           }
 
@@ -100,7 +100,7 @@ $( document ).ready(function() {
             if(aal == 2){ aa = "00" + aa; }
             if(aal == 3){ aa = "0" + aa; }
 
-            var sendMsg = "D"+ss+d+aa;
+            var sendMsg = nn+":D"+ss+d+aa;
             window.location.href = '/updatefile/' + ff + '/' + sendMsg;
           }
 
