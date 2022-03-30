@@ -65,8 +65,10 @@ void serialEvent() {
     steps = 0;
     
     if(data.length() == 1){
+      Serial.println("RECEIVED LINE 68: ");
       // COMMAND (R = RESET | S = STOP)
       if(data == "S"){
+        Serial.println("RECEIVED S: ");
         digitalWrite(enaPin, HIGH);
         steps = 0;
         final = 0;
@@ -74,6 +76,7 @@ void serialEvent() {
       
       if(data == "R"){
         // COMMAND RESET
+        Serial.println("RECEIVED R: ");
         pos = 0;
       }
       
@@ -81,14 +84,19 @@ void serialEvent() {
       // GO TO LOCATION MSG: "L090"
         speed = 20;
         final = data.substring(1, 3).toInt();
-        
+        Serial.print("RECEIVED LINE: ");
+        Serial.println(data);
         // Which one is shorter CCW or CW
         if((final - pos) <= (360 - final + pos)){
           dir == 1;
           final = final - pos;
+          Serial.print("Final 93: ");
+          Serial.println(final);
         }else{
           dir == 0;
           final = 360 - final + pos;
+          Serial.print("Final 98: ");
+          Serial.println(final);
         }
       
     }else if(data.length() == 9){
@@ -96,6 +104,8 @@ void serialEvent() {
       speed = data.substring(1, 4).toInt();
       dir = data.substring(4, 5).toInt();
       final = data.substring(5, 9).toInt();
+      Serial.print("RECEIVED LINE 103: ");
+      Serial.println(data);
     }
 
     if(dir == 1){
