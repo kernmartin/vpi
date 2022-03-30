@@ -256,7 +256,7 @@ button.ui-keyboard-extender span {
 /* Media Queries (optimized for jQuery UI themes;
  may be slightly off in jQuery Mobile themes) */
 /* 240 x 320 (small phone)  */
-@media all and (max-width: 600px) {
+@media all and (max-width: 319px) {
 	.ui-keyboard div {
 		font-size: 9px;
 	}
