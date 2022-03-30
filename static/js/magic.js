@@ -69,42 +69,42 @@ $( document ).ready(function() {
 
       $("#btnUpdate").click(function(e){
 
+          var nn = $("#fN").val();
+          var mm = $("#fM").val();
           var ss = $("#fS").val();
           var dd = $("#fD").val();
           var aa = $("#fA").val();
+          var fdp = $("#fDP").val();
           var ff = $("#fF").val();
+          var
 
-          var error = 3;
-          if(ss >= 1 && ss <= 998){
-            console.log("speed: " + ss);
-            error--;
+
+          if(mm == "L"){
+            var fdpl = fdp.length;
+            if(fdpl == 1){ fdp = "00" + fdp; }
+            if(fdpl == 2){ fdp = "0" + fdp; }
+            var sendMsg = "L"+fdp;
+            window.location.href = '/updatefile/' + ff + '/' + sendMsg;
           }
 
-          if(dd >= 0 && dd <= 1 ){
-            console.log("dir: " + dd);
-            error--;
-          }
+          if(mm == "D"){
 
-          if(aa >= 0 && aa <= 1080){
-            console.log("angle: " + aa);
-            error--;
-          }
+            //SPEED ###
+            var ssl = ss.length;
+            if(ssl == 1){ ss = "00" + ss; }
+            if(ssl == 2){ ss = "0" + ss; }
 
-          if(error == 0){
-            console.log("all good");
+            // DEGREEs ####
             var aal = aa.length;
-            console.log("ll: " + aal);
-            if(aal == 1){ aa = "00" + aa; }
-            if(aal == 2){ aa = "0" + aa; }
-            var steps = "D"+ss+dd+aa;
-            console.log("steps: " + steps);
-            console.log()
-            window.location.href = '/updatefile/' + ff + '/' + steps;
+            if(aal == 1){ aa = "000" + aa; }
+            if(aal == 2){ aa = "00" + aa; }
+            if(aal == 3){ aa = "0" + aa; }
 
-          } else {
-
-            $("#errorMsg").html("Please, check your values! Something is not right");
+            var sendMsg = "D"+ss+d+aa;
+            window.location.href = '/updatefile/' + ff + '/' + sendMsg;
           }
+
+
 
       });
 
