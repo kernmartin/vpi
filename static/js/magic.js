@@ -37,8 +37,8 @@ $( document ).ready(function() {
         hideFields(m);
 
         s = txtval.substring(1, 4);
-        d = txtval.substring(5, 5);
-        a = txtval.substring(6, 10);
+        d = txtval.substring(4, 5);
+        a = txtval.substring(5, 9);
 
         $("#fN").val(name);
         $("#fM").val(m);
