@@ -39,7 +39,7 @@ def move(move):
 @app.route('/readfile/<thefile>')
 def readfile(thefile):
     filenr = thefile
-    thefile = "./static/cue.txt"
+    thefile = "../static/cue.txt"
     file1 = open(thefile, 'r')
     Lines = file1.readlines()
     msgl = Lines[int(filenr)]
