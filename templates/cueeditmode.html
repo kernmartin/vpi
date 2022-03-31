@@ -28,9 +28,9 @@
 
       <div class="uk-container uk-padding" style="background: rgba(255,255,255,0.1); color: black;">
           <div class="uk-flex uk-flex-wrap uk-flex-wrap-around">
-            
+
             <div class="uk-width-auto">
-              <a href="/cuemode" class="alarge">CUE</a>  
+              <a href="/cuemode" class="alarge">CUE</a>
               <a href="/" class="alarge">MANUAL</a>
               <a href="/cueeditmode" class="alarge">CUE EDIT</a>
             </div>
@@ -81,16 +81,21 @@ function loadCues(){
       var lines = data.split('\n');
       for(var line = 0; line < lines.length; line++){
         if(lines[line] != ""){
-          
-        var modus = lines[line].substring(0, 1);
+
+
+        var btntxt = lines[line].split(':');
+
+        var btntxtTrim = btntxt[1].replace(/^\s+|\s+$/gm,'');
+        var modus = btntxtTrim.substring(0, 1);
+        
         //console.log(lines[line]);
         newB += '<div><a href="/readfile/'+line+'"';
         newB += 'class="';
-        
+
         if(modus == "L"){
           newB += ' lMode ';
         }
-        
+
         newB += ' btn uk-button uk-button-secondary uk-button-large uk-width-1-1">';
         newB += lines[line];
         newB += '</a></div>';
