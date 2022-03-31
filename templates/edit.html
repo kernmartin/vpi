@@ -71,6 +71,7 @@
         <h3 style="text-transfo">Edit Cue: {{msg}}</h3>
         <input type="hidden" value="{{msg}}" id="txtval">
 
+        <div class="uk-grid">
         <div class="mode">
         <label>NAME:</label>
         <input type="text"
@@ -80,8 +81,9 @@
                class="large keyboard"
                placeholder="Name">
         </div>
+        </div>
 
-
+        <div class="uk-grid">
         <label>MODE</label>
         <select name=""
                 id="fM"
@@ -89,7 +91,10 @@
           <option value="D">Drive</option>
           <option value="L">Position</option>
         </select>
+        </div>
 
+
+        <div class="uk-grid">
         <div class="modeD">
         <label>SPEED:</label>
         <input type="text"
@@ -100,45 +105,69 @@
                min="10" max="999"
                placeholder="Speed 1 to 999">
         </div>
-
-        <div class="modeD">
-        <label>DIR: CW / CCW</label>
-        <select name=""
-                id="fD"
-                class="large">
-          <option value="0">CCW</option>
-          <option value="1">CW</option>
-        </select>
         </div>
 
-        <div class="modeL">
-        <label>DEGREE POS:</label>
+
+
+        <div class="uk-grid modeD">
+          <div class="uk-width-1-2@s uk-width-1-1">
+            <label>DIR: CW / CCW</label>
+          </div>
+
+
+            <div class="uk-width-1-2@s uk-width-1-1">
+              <select name=""
+                      id="fD"
+                      class="large">
+                <option value="0">CCW</option>
+                <option value="1">CW</option>
+              </select>
+            </div>
+
+
+
+
+      </div>
+
+
+      <div class="uk-grid modeL">
+
+        <div class="uk-width-1-2@s uk-width-1-1">
+          <label>DEGREE POS:</label>
+        </div>
+        <div class="uk-width-1-2@s uk-width-1-1">
         <input type="text"
                value=""
                id="fDP"
                name="degree"
-               class="large keyboardNum"
+               class="uk-form-large keyboardNum"
                min="0" max="359"
                placeholder="Degree Position">
         </div>
 
+      </div>
 
-        <div class="modeD">
-        <label>DEGREE ROT:</label>
-        <input type="text"
-               value=""
-               id="fA"
-               name="angle"
-               class="large keyboardNum"
-               min="0" max="1080"
-               placeholder="Degree">
+      <div class="uk-grid modeD">
+
+        <div class="uk-width-1-2@s uk-width-1-1">
+          <label>DEGREE ROT:</label>
         </div>
 
+        <div class="uk-width-1-2@s uk-width-1-1">
+          <input type="text"
+                 value=""
+                 id="fA"
+                 name="angle"
+                 class="uk-form-large keyboardNum"
+                 min="0" max="1080"
+                 placeholder="Degree">
+        </div>
+      </div>
                <input type="hidden" value="{{txtfile}}" disabled id="fF">
 
-          <div class="error" id="errorMsg" style="color: blue; padding: 10px; font-size: 20px; line-height: 20px;"></div>
-
-          <button id="btnUpdate">Update</button>
+          <div class="uk-grid">
+          <button id="btnUpdate" class="uk-width-1-1">Update</button>
+          </div>
 
       </div>
     </div>
