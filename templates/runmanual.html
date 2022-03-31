@@ -166,10 +166,8 @@
 </style>
 
 <script>
-  alert("J>Q");
 $( document ).ready(function() {
-  alert("JQ");
-  console.log("#hi");
+
 
   $('#btnRUNSHOW').click(function(e){
     e.preventDefault();
@@ -179,8 +177,20 @@ $( document ).ready(function() {
     var dir = $("#fD").val();
     var degree = $("#fDP").val();
 
+
+    var sl = speed.length;
+    if(sl == 1){ speed = "00" + speed; }
+    if(sl == 2){ speed = "0" + speed; }
+
+    var dl = speed.length;
+    if(dl == 1){ degree = "000" + degree; }
+    if(dl == 2){ degree = "00" + degree; }
+    if(dl == 1){ degree = "0" + degree; }
+
+
+
     var msg = mode+speed+dir+degree;
-    console.log("#btnRUNSHOW" + msg);
+    console.log("#btnRUNSHOW: " + msg);
     $.get( "/arduino/" + msg );
   });
 
