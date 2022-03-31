@@ -190,10 +190,11 @@ $( document ).ready(function() {
     if(sl == 1){ speed = "00" + speed; }
     if(sl == 2){ speed = "0" + speed; }
 
-    var dl = speed.length;
+    var dl = degree.length;
+    if(dl == 0){ degree = "0000" + degree; }
     if(dl == 1){ degree = "000" + degree; }
     if(dl == 2){ degree = "00" + degree; }
-    if(dl == 1){ degree = "0" + degree; }
+    if(dl == 3){ degree = "0" + degree; }
 
     console.log('--- speed: ' + speed + " dir: " + dir + " degree: " + degree);
 
