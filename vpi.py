@@ -75,7 +75,7 @@ def steps(steps):
 def updatefile(thefile, steps):
 
     linenr = int(thefile)
-    thefile = "home/vm/vpi/static/cue.txt"
+    thefile = "{}/static/cue.txt".format(pa)
     a_file = open(thefile, "r")
 
     list_of_lines = a_file.readlines()
