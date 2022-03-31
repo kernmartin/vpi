@@ -39,7 +39,7 @@ def move(move):
 @app.route('/readfile/<thefile>')
 def readfile(thefile):
     filenr = thefile
-    thefile = "../static/cue.txt"
+    thefile = "home/vm/vpi/static/cue.txt"
     file1 = open(thefile, 'r')
     Lines = file1.readlines()
     msgl = Lines[int(filenr)]
@@ -69,7 +69,7 @@ def steps(steps):
 def updatefile(thefile, steps):
 
     linenr = int(thefile)
-    thefile = "./static/cue.txt"
+    thefile = "home/vm/vpi/static/cue.txt"
     a_file = open(thefile, "r")
 
     list_of_lines = a_file.readlines()
