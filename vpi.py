@@ -15,6 +15,7 @@ ser.reset_input_buffer()
 
 @app.route("/")
 def index():
+  print(os.path.dirname)
   return render_template("index.html")
 
 @app.route("/cuemode")
