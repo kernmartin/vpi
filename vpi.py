@@ -12,7 +12,7 @@ app.config.update(
 
 ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
 ser.reset_input_buffer()
-print(os.path.dirname(__file__))
+pa = os.path.dirname(__file__)
 
 @app.route("/")
 def index():
@@ -45,7 +45,7 @@ def move(move):
 @app.route('/readfile/<thefile>')
 def readfile(thefile):
     filenr = thefile
-    thefile = "home/vm/vpi/static/cue.txt"
+    thefile = "{}/static/cue.txt".format(pa)
     file1 = open(thefile, 'r')
     Lines = file1.readlines()
     msgl = Lines[int(filenr)]
