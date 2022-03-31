@@ -71,71 +71,81 @@
         <h3 style="text-transfo">Edit Cue: {{msg}}</h3>
         <input type="hidden" value="{{msg}}" id="txtval">
 
-        <div class="uk-grid">
-        <div class="mode">
-        <label>NAME:</label>
+        <div class="uk-grid mode">
+          <div class="uk-width-1-2">
+              <label>NAME:</label>
+          </div>
+
+        <div class="uk-width-1-2">
+
         <input type="text"
                value=""
                id="fN"
                name="cuename"
-               class="large keyboard"
+               class="uk-form-large keyboard"
                placeholder="Name">
-        </div>
+             </div>
         </div>
 
         <div class="uk-grid">
-        <label>MODE</label>
-        <select name=""
-                id="fM"
-                class="large">
-          <option value="D">Drive</option>
-          <option value="L">Position</option>
-        </select>
+          <div class="uk-width-1-2">
+            <label>MODE</label>
+          </div>
+
+          <div class="uk-width-1-2">
+          <select name=""
+                  id="fM"
+                  class="uk-form-large">
+            <option value="D">Drive</option>
+            <option value="L">Position</option>
+          </select>
+          </div>
         </div>
 
 
-        <div class="uk-grid">
-        <div class="modeD">
-        <label>SPEED:</label>
+        <div class="uk-grid modeD">
+
+          <div class="uk-width-1-2">
+            <label>SPEED:</label>
+          </div>
+
+          <div class="uk-width-1-2">
+
+
         <input type="text"
                value=""
                id="fS"
                name="speed"
-               class="large keyboardNum"
+               class="uk-form-large keyboardNum"
                min="10" max="999"
                placeholder="Speed 1 to 999">
-        </div>
+               </div>
         </div>
 
 
 
         <div class="uk-grid modeD">
-          <div class="uk-width-1-2@s uk-width-1-1">
+          <div class="uk-width-1-2">
             <label>DIR: CW / CCW</label>
           </div>
 
-
-            <div class="uk-width-1-2@s uk-width-1-1">
+            <div class="uk-width-1-2">
               <select name=""
                       id="fD"
-                      class="large">
+                      class="uk-form-large">
                 <option value="0">CCW</option>
                 <option value="1">CW</option>
               </select>
             </div>
-
-
-
-
-      </div>
+          </div>
 
 
       <div class="uk-grid modeL">
 
-        <div class="uk-width-1-2@s uk-width-1-1">
+        <div class="uk-width-1-2">
           <label>DEGREE POS:</label>
         </div>
-        <div class="uk-width-1-2@s uk-width-1-1">
+        <div class="uk-width-1-2">
         <input type="text"
                value=""
                id="fDP"
@@ -149,11 +159,11 @@
 
       <div class="uk-grid modeD">
 
-        <div class="uk-width-1-2@s uk-width-1-1">
+        <div class="uk-width-1-2">
           <label>DEGREE ROT:</label>
         </div>
 
-        <div class="uk-width-1-2@s uk-width-1-1">
+        <div class="uk-width-1-2">
           <input type="text"
                  value=""
                  id="fA"
