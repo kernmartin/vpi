@@ -12,7 +12,7 @@ app.config.update(
 
 ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
 ser.reset_input_buffer()
-print(os.path.dirname('home/vm/vpi/static/cue.txt'))
+print(os.path.dirname('__file__'))
 
 @app.route("/")
 def index():
