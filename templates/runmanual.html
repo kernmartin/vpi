@@ -177,6 +177,13 @@ $( document ).ready(function() {
     var dir = $("#fD").val();
     var degree = $("#fDP").val();
 
+    if(speed == ""){
+      speed = 100;
+    }
+
+    if(dir == ""){
+      dir = 1;
+    }
 
     var sl = speed.length;
     if(sl == 1){ speed = "00" + speed; }
