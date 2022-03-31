@@ -20,6 +20,10 @@ def index():
 @app.route("/cuemode")
 def cuemode():
   return render_template("cuemode.html")
+  
+@app.route("/runmanual")
+def runmanual():
+  return render_template("runmanual.html")
 
 @app.route("/arduino/<degree>")
 def arduino(degree):
