@@ -173,9 +173,10 @@ $( document ).ready(function() {
     e.preventDefault();
 
     var mode = "D";
-    var speed = $("#fS").val();
-    var dir = $("#fD").val();
-    var degree = $("#fDP").val();
+    var speed = $("#fS").val()toString();
+    var dir = $("#fD").val()toString();
+    var degree = $("#fDP").val()toString();
+    console.log('speed: ' + speed + " dir: " + dir + " degree: " + degree);
 
     if(speed == ""){
       speed = 100;
@@ -194,6 +195,7 @@ $( document ).ready(function() {
     if(dl == 2){ degree = "00" + degree; }
     if(dl == 1){ degree = "0" + degree; }
 
+    console.log('--- speed: ' + speed + " dir: " + dir + " degree: " + degree);
 
 
     var msg = mode+speed+dir+degree;
