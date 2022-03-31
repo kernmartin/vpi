@@ -20,7 +20,7 @@ def index():
 @app.route("/cuemode")
 def cuemode():
   return render_template("cuemode.html")
-  
+
 @app.route("/runmanual")
 def runmanual():
   return render_template("runmanual.html")
@@ -86,4 +86,4 @@ def updatefile(thefile, steps):
     return redirect(url_for('cueeditmode'))
 
 if __name__ == "__main__":
-  app.run(host='localhost')
+  app.run(host='0.0.0.0')
