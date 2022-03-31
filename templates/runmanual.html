@@ -177,6 +177,7 @@ $( document ).ready(function() {
     var degree = $("#fDP").val();
 
     var msg = mode+speed+dir+degree;
+    console.log("#btnRUNSHOW" + msg);
     $.get( "/arduino/" + msg );
   });
 
